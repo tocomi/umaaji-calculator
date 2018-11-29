@@ -2,15 +2,35 @@
   div.horse
     div#info
       span#name {{ horse.horse_name }}
+      br
+      span#score {{ score }}
     Race(v-for="race in horse.past_races" :key="race.grade" :race="race")
 </template>
 
 <script>
 import Race from './Race.vue'
+import Calculator from '../lib/Calculator.js'
 
 export default {
   props: {
     horse: Object,
+  },
+  data() {
+    return {
+      score: 0,
+    }
+  },
+  created() {
+    const calculator = new Calculator()
+    const score = calculator.execute(this.horse.past_races)
+    this.score = score
+  },
+  methods: {
+    calculateScore() {
+      const calculator = new Calculator()
+      const score = calculator.execute(this.horse.past_races)
+      this.score = score
+    }
   },
   components: {
     Race: Race,
@@ -20,14 +40,15 @@ export default {
 
 <style lang="scss" scoped>
 .horse {
-  width: 950px;
+  width: 1000px;
   height: 100px;
   #info {
     float: left;
-    width: 130px;
+    width: 180px;
     height: 80px;
     padding: 10px;
-    background-color: #DDD;
+    background-color: #2880BA;
+    color: #DDD;
   }
 }
 </style>
