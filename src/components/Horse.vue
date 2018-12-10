@@ -1,7 +1,9 @@
 <template lang="pug">
   div.horse
     div#info
-      span#name {{ horse.horse_name }}
+      span#name {{ horse.name }} {{ horse.handi }}
+      br
+      span#jockey {{ horse.jockey }}
       br
       span#score {{ score }}
     Race(v-for="race in horse.past_races" :key="race.grade" :race="race")
