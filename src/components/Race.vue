@@ -1,6 +1,6 @@
 <template lang="pug">
   div.race
-    span#name {{ race.grade }}
+    span#name {{ race.name }} {{ race.grade }}
     br
     span#condition {{ race.ground }} {{ race.distance }} {{ race.status }}
     br
