@@ -7,7 +7,7 @@
       span#jockey {{ horse.jockey }}
       br
       span#score {{ score }}
-    Race(v-for="race in horse.past_races" :key="race.grade" :race="race")
+    Race(v-for="race in horse.past_races" :key="race.name" :race="race")
 </template>
 
 <script>
