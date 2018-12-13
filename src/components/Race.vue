@@ -1,6 +1,8 @@
 <template lang="pug">
   div.race(:class="{ rest: isRest }")
-    span#name {{ race.name }} {{ race.grade }}
+    span#grade(:class="[ grade ]") {{ race.grade }}
+    br
+    span#name {{ race.name }}
     br
     span#condition {{ race.ground }} {{ race.distance }} {{ race.status }}
     br
@@ -21,6 +23,12 @@ export default {
     },
     isRest() {
       return this.race.name.includes('休養')
+    },
+    grade() {
+      if (this.race.grade) {
+        return this.race.grade
+      }
+      return 'rest'
     }
   }
 }
@@ -30,11 +38,39 @@ export default {
 .race {
   float: left;
   width: 130px;
-  height: 80px;
+  height: 100px;
   padding: 10px;
   border: solid 1px #AAA;
-}
-.rest {
-  background-color: #DDD;
+  &.rest {
+    background-color: #DDD;
+  }
+  #grade {
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 25px;
+    height: 20px;
+    width: 50px;
+    background: #888;
+    color: #EEE;
+    &.G1 {
+      background: #BF382A;
+      font-weight: bold;
+    }
+    &.G2 {
+      background: #2880BA;
+      font-weight: bold;
+    }
+    &.G3 {
+      background: #8E725E;
+      font-weight: bold;
+    }
+    &.OP {
+      background: #666;
+    }
+    &.rest {
+      height: 0;
+      width: 0;
+    }
+  }
 }
 </style>
