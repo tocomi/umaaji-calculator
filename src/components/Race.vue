@@ -2,7 +2,7 @@
   div.race(:class="{ rest: isRest }")
     span#grade(:class="[ grade ]") {{ race.grade }}
     br
-    span#name {{ race.name }}
+    span#name(:class="{ rest: isRest }") {{ race.name }}
     br
     span#condition {{ race.ground }} {{ race.distance }} {{ race.status }}
     br
@@ -42,13 +42,13 @@ export default {
   padding: 10px;
   border: solid 1px #AAA;
   &.rest {
-    background-color: #DDD;
+    background-color: #EEE;
   }
   #grade {
     position: absolute;
     margin-top: -10px;
     margin-left: 25px;
-    height: 20px;
+    height: 25px;
     width: 50px;
     background: #888;
     color: #EEE;
@@ -70,6 +70,20 @@ export default {
     &.rest {
       height: 0;
       width: 0;
+    }
+  }
+  #name {
+    position: absolute;
+    margin-top: -32px;
+    margin-left: -75px;
+    width: 100px;
+    color: #444;
+    border-bottom: solid #666 1px;
+    &.rest {
+      position: relative;
+      margin: 0;
+      border: 0;
+      background: none; 
     }
   }
 }
