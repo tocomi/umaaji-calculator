@@ -85,13 +85,13 @@ export default {
   }
   #condition {
     position: absolute;
-    margin-top: 30px;
-    margin-left: -35px;
+    margin-top: 25px;
+    margin-left: -38px;
   }
   #time {
     position: absolute;
-    margin-top: 60px;
-    margin-left: -35px;
+    margin-top: 50px;
+    margin-left: -40px;
   }
 }
 </style>
