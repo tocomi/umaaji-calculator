@@ -1,11 +1,8 @@
 <template lang="pug">
   div.race(:class="{ rest: isRest }")
     span#grade(:class="[ grade ]") {{ race.grade }}
-    br
     span#name(:class="{ rest: isRest }") {{ race.name }}
-    br
     span#condition {{ race.ground }} {{ race.distance }} {{ race.status }}
-    br
     span#time {{ race.time }} {{ diff }}
 </template>
 
@@ -74,7 +71,7 @@ export default {
   }
   #name {
     position: absolute;
-    margin-top: -32px;
+    margin-top: -10px;
     margin-left: -75px;
     width: 100px;
     color: #444;
@@ -85,6 +82,16 @@ export default {
       border: 0;
       background: none; 
     }
+  }
+  #condition {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -35px;
+  }
+  #time {
+    position: absolute;
+    margin-top: 60px;
+    margin-left: -35px;
   }
 }
 </style>
