@@ -1,8 +1,8 @@
 <template lang="pug">
   div.index
     div(v-for="race in raceData", :key="race.race_name")
-      h3 {{ race.race_name }}
-      h4 {{ race.race_ground }}
+      h3 {{ race.name }}
+      h4 {{ race.ground }} {{ race.distance }}
       Horse(v-for="horse in race.horses", :key="horse.horse_name", :horse="horse")
 </template>
 
