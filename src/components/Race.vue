@@ -4,12 +4,28 @@
     span#name(:class="{ rest: isRest }") {{ race.name }}
     span#condition {{ race.ground }} {{ race.distance }} {{ race.status }}
     span#time {{ race.time }} {{ diff }}
+    span#score {{ score }}
 </template>
 
 <script>
+import Calculator from '../lib/UmaajiCalculator.js'
+
 export default {
   props: {
     race: Object,
+  },
+  data() {
+    return {
+      score: 0,
+    }
+  },
+  created() {
+    if (this.isRest) {
+      score = 0
+      return
+    }
+    const calculator = new Calculator();
+    this.score = calculator.calculateOneRace(this.race);
   },
   computed: {
     diff() {
@@ -92,6 +108,13 @@ export default {
     position: absolute;
     margin-top: 50px;
     margin-left: -40px;
+  }
+  #score {
+    position: absolute;
+    margin-top: 75px;
+    margin-left: -25px;
+    width: 50px;
+    font-weight: bold;
   }
 }
 </style>

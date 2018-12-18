@@ -12,7 +12,6 @@
 
 <script>
 import Race from './Race.vue'
-import Calculator from '../lib/Calculator.js'
 
 export default {
   props: {
@@ -21,18 +20,6 @@ export default {
   data() {
     return {
       score: 0,
-    }
-  },
-  created() {
-    const calculator = new Calculator()
-    const score = calculator.execute(this.horse.past_races)
-    this.score = score
-  },
-  methods: {
-    calculateScore() {
-      const calculator = new Calculator()
-      const score = calculator.execute(this.horse.past_races)
-      this.score = score
     }
   },
   components: {
