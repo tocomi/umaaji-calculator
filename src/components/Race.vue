@@ -21,11 +21,11 @@ export default {
   },
   created() {
     if (this.isRest) {
-      score = 0
       return
     }
     const calculator = new Calculator();
     this.score = calculator.calculateOneRace(this.race);
+    this.$emit('addScore', this.score)
   },
   computed: {
     diff() {

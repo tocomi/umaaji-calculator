@@ -7,7 +7,7 @@
       span#jockey {{ horse.jockey }}
       br
       span#score {{ score }}
-    Race(v-for="race in horse.past_races" :key="race.name" :race="race")
+    Race(v-for="race in horse.past_races" :key="race.name" :race="race" @addScore="addScore")
 </template>
 
 <script>
@@ -20,6 +20,11 @@ export default {
   data() {
     return {
       score: 0,
+    }
+  },
+  methods: {
+    addScore(raceScore) {
+      this.score += raceScore
     }
   },
   components: {
@@ -44,6 +49,9 @@ export default {
     }
     #handi {
       margin-left: 5px;
+    }
+    #score {
+      font-weight: bold;
     }
   }
 }

@@ -31,7 +31,6 @@ export default class {
     if (diff < 1 && diff >= 0.7) {
       score += 5
     }
-    console.log(score)
     return score
   }
 
