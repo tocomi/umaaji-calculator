@@ -50,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 .race {
   float: left;
-  width: 130px;
+  width: 140px;
   height: 100px;
   padding: 10px;
   border: solid 1px #AAA;
@@ -60,7 +60,7 @@ export default {
   #grade {
     position: absolute;
     margin-top: -10px;
-    margin-left: 25px;
+    margin-left: 30px;
     height: 25px;
     width: 50px;
     background: #888;
@@ -88,8 +88,10 @@ export default {
   #name {
     position: absolute;
     margin-top: -10px;
-    margin-left: -75px;
-    width: 100px;
+    margin-left: -80px;
+    height: 24px;
+    width: 110px;
+    font-size: 13px;
     color: #444;
     border-bottom: solid #666 1px;
     &.rest {
