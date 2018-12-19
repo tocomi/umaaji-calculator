@@ -6,7 +6,7 @@ export default class {
     score = this._calculateDiff(score, Number(race.diff))
     score = this._calculateGrade(score, race.grade)
 
-    return score
+    return Math.round(score)
   }
 
   _calculateDiff(score, diff) {
