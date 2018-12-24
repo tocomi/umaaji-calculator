@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import axios from 'axios'
+
 Vue.use(Vuex)
+
+const firebaseStorage = firebase.storage()
 
 export default new Vuex.Store({
   state: {
@@ -14,8 +18,13 @@ export default new Vuex.Store({
   },
   actions: {
     readJson({ commit }) {
-      const data = require('./assets/data/result.json')
-      commit('setData', { raceData: data })
+      const fileRef = firebaseStorage.ref('result.json')
+      fileRef.getDownloadURL().then(url => {
+        return axios.get(url)
+      }).then(response => {
+        const data = response.data
+        commit('setData', { raceData: data })
+      })
     }
   }
 })
