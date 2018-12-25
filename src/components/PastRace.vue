@@ -63,6 +63,7 @@ export default {
     margin-left: 35px;
     height: 25px;
     width: 50px;
+    font-size: 14px;
     background: #888;
     color: #EEE;
     &.G1 {

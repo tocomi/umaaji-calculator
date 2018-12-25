@@ -35,8 +35,8 @@ export default {
 
 <style lang="scss" scoped>
 .horse {
-  width: 1100px;
-  height: 100px;
+  width: 1200px;
+  height: 122px;
   #info {
     float: left;
     width: 180px;
