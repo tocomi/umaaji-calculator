@@ -7,11 +7,11 @@
       span#jockey {{ horse.jockey }}
       br
       span#score {{ score }}
-    Race(v-for="race in horse.past_races" :key="race.name" :race="race" @addScore="addScore")
+    PastRace(v-for="race in horse.past_races" :key="race.name" :race="race" @addScore="addScore")
 </template>
 
 <script>
-import Race from './Race.vue'
+import PastRace from './PastRace.vue'
 
 export default {
   props: {
@@ -28,7 +28,7 @@ export default {
     }
   },
   components: {
-    Race: Race,
+    PastRace: PastRace,
   }
 }
 </script>
