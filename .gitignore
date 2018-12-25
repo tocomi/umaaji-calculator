@@ -20,8 +20,5 @@ yarn-error.log*
 *.sln
 *.sw*
 
-# data
-src/assets/data/*.json
-
 # firebase
 .firebase
