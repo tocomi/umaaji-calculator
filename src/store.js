@@ -9,11 +9,13 @@ const firebaseStorage = firebase.storage()
 
 export default new Vuex.Store({
   state: {
-    raceData: []
+    raceData: [],
+    loading: true,
   },
   mutations: {
     setData(state, payload) {
       state.raceData = payload.raceData
+      state.loading = false
     }
   },
   actions: {
