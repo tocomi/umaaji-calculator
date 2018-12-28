@@ -4,7 +4,7 @@
     span#name(:class="{ rest: isRest }") {{ race.name }}
     span#condition {{ race.ground }} {{ race.distance }} {{ race.status }}
     span#time {{ race.time }} {{ diff }}
-    span#score {{ score }}
+    span#score(v-if="!isRest && !isExclusion") {{ score }}
 </template>
 
 <script>
