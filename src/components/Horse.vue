@@ -6,7 +6,7 @@
       br
       span#jockey {{ horse.jockey }}
       br
-      span#score {{ score }}
+      span#score umaaji: {{ average }}
     PastRace(v-for="race in horse.past_races" :key="race.name" :race="race" @addScore="addScore")
 </template>
 
@@ -21,6 +21,11 @@ export default {
     return {
       score: 0,
       count: 0,
+    }
+  },
+  computed: {
+    average() {
+      return Math.round(this.score / this.count * 10) / 10
     }
   },
   methods: {
