@@ -29,10 +29,10 @@ export default {
   },
   computed: {
     diff() {
-      if (this.race.diff) {
-        return '(' + this.race.diff + ')'
+      if (this.isRest || this.isExclusion) {
+        return ''
       }
-      return ''
+      return '(' + this.race.diff + ')'
     },
     isRest() {
       return this.race.name.includes('休養')
