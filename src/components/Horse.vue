@@ -20,11 +20,13 @@ export default {
   data() {
     return {
       score: 0,
+      count: 0,
     }
   },
   methods: {
     addScore(raceScore) {
       this.score += raceScore
+      this.count++
     }
   },
   components: {

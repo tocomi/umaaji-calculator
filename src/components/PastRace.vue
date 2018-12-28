@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    if (this.isRest) {
+    if (this.isRest || this.isExclusion) {
       return
     }
     const calculator = new Calculator();
@@ -36,6 +36,9 @@ export default {
     },
     isRest() {
       return this.race.name.includes('休養')
+    },
+    isExclusion() {
+      return !this.race.time
     },
     grade() {
       if (this.race.grade) {
