@@ -32,6 +32,7 @@ export default {
     addScore(raceScore) {
       this.score += raceScore
       this.count++
+      this.$emit('setAverage', this.horse, this.average)
     }
   },
   components: {

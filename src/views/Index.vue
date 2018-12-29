@@ -5,7 +5,9 @@
       div#race(v-for="race in raceData", :key="race.race_name", @click="setHorseData(race)")
         RaceInfo(:race="race")
     div#horses
-      Horse(v-for="horse in horses", :key="horse.name", :horse="horse")
+      button#sort(@click="sortByUmaaji") sort by umaaji
+      transition-group(name="flip-list")
+        Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setAverage="setAverage")
 </template>
 
 <script>
@@ -35,12 +37,19 @@ export default {
     setHorseData(race) {
       let targetRace = this.$store.state.raceData.filter(raceData => race.name === raceData.name)
       this.horses = targetRace[0].horses
+      this.horses.forEach(horse => horse.average = 0)
+    },
+    setAverage(horse, average) {
+      horse.average = average
+    },
+    sortByUmaaji() {
+      this.horses.sort((a, b) => b.average - a.average)
     }
   },
   components: {
-    Horse: Horse,
-    RaceInfo: RaceInfo,
-    Loading: Loading,
+    Horse,
+    RaceInfo,
+    Loading,
   }
 }
 </script>
@@ -53,5 +62,8 @@ export default {
 #race {
   float: left;
   width: 210px;
+}
+.flip-list-move {
+  transition: transform 1s;
 }
 </style>

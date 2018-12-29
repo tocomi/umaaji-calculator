@@ -35,6 +35,9 @@ export default {
       return '(' + this.race.diff + ')'
     },
     isRest() {
+      if (!this.race.name) {
+        return true;
+      }
       return this.race.name.includes('休養')
     },
     isExclusion() {
