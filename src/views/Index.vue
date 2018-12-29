@@ -5,7 +5,7 @@
       div#race(v-for="race in raceData", :key="race.race_name", @click="setHorseData(race)")
         RaceInfo(:race="race")
     div#horses
-      button#sort(@click="sortByUmaaji") sort by umaaji
+      button#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
       transition-group(name="flip-list")
         Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setAverage="setAverage")
 </template>
@@ -31,6 +31,9 @@ export default {
     },
     loading() {
       return this.$store.state.loading
+    },
+    isRaceSelected() {
+      return this.horses.length > 0
     }
   },
   methods: {
