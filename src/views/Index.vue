@@ -1,9 +1,9 @@
 <template lang="pug">
   div.index
     Loading(v-if="loading")
-    dic#list
+    div#list
       div#races
-        div#race(v-for="race in raceData", :key="race.race_name", @click="setHorseData(race)")
+        div#race(v-for="race in raceData", :key="race.place + race.round", @click="setHorseData(race)")
           RaceInfo(:race="race")
     div#data
       div#horses
