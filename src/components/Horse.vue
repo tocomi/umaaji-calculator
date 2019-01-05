@@ -43,11 +43,11 @@ export default {
 
 <style lang="scss" scoped>
 .horse {
-  height: 122px;
+  height: 106px;
   #info {
     float: left;
     width: 180px;
-    height: 120px;
+    height: 105px;
     padding: 10px;
     background-color: #1770BA;
     color: #DDD;

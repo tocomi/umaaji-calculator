@@ -2,8 +2,9 @@
   div.race(:class="{ rest: isRest }")
     span#grade(:class="[ grade ]") {{ race.grade }}
     span#name(:class="{ rest: isRest }") {{ race.name }}
-    span#condition {{ race.ground }} {{ race.distance }} {{ race.status }}
-    span#time {{ race.time }} {{ diff }}
+    div#cond_time
+      span#condition {{ race.ground }}{{ race.distance }} {{ race.status }}
+      span#time {{ race.time }} {{ diff }}
     span#score(v-if="!isRest && !isExclusion") {{ score }}
 </template>
 
@@ -57,7 +58,7 @@ export default {
 .race {
   float: left;
   width: 170px;
-  height: 120px;
+  height: 105px;
   padding: 10px;
   border: solid 1px #AAA;
   &.rest {
@@ -108,19 +109,24 @@ export default {
       background: none; 
     }
   }
-  #condition {
+  #cond_time {
     position: absolute;
-    margin-top: 25px;
-    margin-left: -38px;
-  }
-  #time {
-    position: absolute;
-    margin-top: 50px;
-    margin-left: -40px;
+    width: 170px;
+    margin-top: 15px;
+    margin-left: -90px;
+    #condition {
+      position: absolute;
+      margin-left: 5px;
+    }
+    #time {
+      position: absolute;
+      width: 90px;
+      margin-left: 70px;
+    }
   }
   #score {
     position: absolute;
-    margin-top: 75px;
+    margin-top: 70px;
     margin-left: -25px;
     width: 50px;
     font-weight: bold;
