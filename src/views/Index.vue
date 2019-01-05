@@ -60,18 +60,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#list {
-  float: left;
-  width: 260px;
-  height: 2215px;
-  #race {
-    width: 250px;
+.index {
+  margin-top: 30px;
+  #list {
+    float: left;
+    width: 260px;
+    height: 2215px;
+    #race {
+      width: 250px;
+    }
   }
-}
-#data {
-  width: 1340px;
-  .flip-list-move {
-    transition: transform 1s;
+  #data {
+    width: 1340px;
+    .flip-list-move {
+      transition: transform 1s;
+    }
   }
 }
 </style>
