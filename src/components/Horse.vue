@@ -7,7 +7,7 @@
       span#jockey {{ horse.jockey }}
       br
       span#score umaaji: {{ average }}
-    PastRace(v-for="race in horse.past_races" :key="race.name" :race="race" @addScore="addScore")
+    PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
 
 <script>
@@ -48,7 +48,7 @@ export default {
   #info {
     float: left;
     width: 180px;
-    height: 100px;
+    height: 120px;
     padding: 10px;
     background-color: #1770BA;
     color: #DDD;

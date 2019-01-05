@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.index
+  div#index
     Loading(v-if="loading")
     div#list
       div#races
@@ -7,7 +7,7 @@
           RaceInfo(:race="race")
     div#data
       div#horses
-        button#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
+        v-btn#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
         transition-group(name="flip-list")
           Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setAverage="setAverage")
 </template>
@@ -60,18 +60,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#list {
-  float: left;
-  width: 260px;
-  height: 2215px;
-  #race {
-    width: 250px;
+#index {
+  margin-top: 30px;
+  #list {
+    float: left;
+    width: 260px;
+    height: 2215px;
+    #race {
+      width: 250px;
+    }
   }
-}
-#data {
-  width: 1340px;
-  .flip-list-move {
-    transition: transform 1s;
+  #data {
+    width: 1340px;
+    .flip-list-move {
+      transition: transform 1s;
+    }
   }
 }
 </style>
