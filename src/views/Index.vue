@@ -1,18 +1,22 @@
 <template lang="pug">
   div#index
     Loading(v-if="loading")
-    div#list
-      v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
-        v-tab(v-for="place in racePlace") {{ place }}
-        v-tab-item(v-for="place in racePlace")
-          div#races
-            div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
-              RaceInfo(:race="race")
-    div#data
-      div#horses
-        v-btn#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
-        transition-group(name="flip-list")
-          Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setAverage="setAverage")
+    v-layout
+      v-flex(xs2)
+        div#list(v-if="!loading")
+          v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
+            v-tab(v-for="place in racePlace") {{ place }}
+            v-tab-item(v-for="place in racePlace")
+              v-card
+                div#races
+                  div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
+                    RaceInfo(:race="race")
+      v-flex(xs10)
+        div#data
+          div#horses
+            v-btn#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
+            transition-group(name="flip-list")
+              Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setAverage="setAverage")
 </template>
 
 <script>
@@ -73,22 +77,18 @@ export default {
 #index {
   margin-top: 30px;
   #list {
-    float: left;
     width: 220px;
-    height: 2215px;
     #place_tabs {
       margin-left: 10px;
       width: 210px;
     }
-    #races {
-      margin-top: 10px;
-      #race {
-        width: 210px;
-      }
+    #race {
+      width: 210px;
     }
   }
   #data {
     width: 1340px;
+    margin-left: 10px;
     .flip-list-move {
       transition: transform 1s;
     }

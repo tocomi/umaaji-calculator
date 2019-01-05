@@ -23,7 +23,7 @@ export default {
 #race_info {
   height: 45px;
   width: 170px;
-  margin-top: 2px;
+  margin-top: 5px;
   outline: 0;
   background-color: #394C82;
   color: #FFFFFF;
