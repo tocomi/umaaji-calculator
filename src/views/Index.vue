@@ -64,10 +64,10 @@ export default {
   margin-top: 30px;
   #list {
     float: left;
-    width: 260px;
+    width: 220px;
     height: 2215px;
     #race {
-      width: 250px;
+      width: 210px;
     }
   }
   #data {
