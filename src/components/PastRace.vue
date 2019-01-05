@@ -56,8 +56,8 @@ export default {
 <style lang="scss" scoped>
 .race {
   float: left;
-  width: 150px;
-  height: 100px;
+  width: 170px;
+  height: 120px;
   padding: 10px;
   border: solid 1px #AAA;
   &.rest {
@@ -67,7 +67,7 @@ export default {
     position: absolute;
     margin-top: -10px;
     margin-left: 35px;
-    height: 25px;
+    height: 24px;
     width: 50px;
     font-size: 14px;
     background: #888;
