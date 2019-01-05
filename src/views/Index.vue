@@ -2,9 +2,12 @@
   div#index
     Loading(v-if="loading")
     div#list
-      div#races
-        div#race(v-for="race in raceData", :key="race.place + race.round", @click="setHorseData(race)")
-          RaceInfo(:race="race")
+      v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
+        v-tab(v-for="place in racePlace") {{ place }}
+        v-tab-item(v-for="place in racePlace")
+          div#races
+            div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
+              RaceInfo(:race="race")
     div#data
       div#horses
         v-btn#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
@@ -28,19 +31,21 @@ export default {
     this.$store.dispatch('readJson')
   },
   computed: {
-    raceData() {
-      return this.$store.state.raceData
-    },
     loading() {
       return this.$store.state.loading
     },
     isRaceSelected() {
       return this.horses.length > 0
-    }
+    },
+    racePlace() {
+      const racePlace = new Set()
+      this.$store.state.raceData.forEach(race => racePlace.add(race.place))
+      return [...racePlace]
+    },
   },
   methods: {
     setHorseData(race) {
-      let targetRace = this.$store.state.raceData.filter(raceData => race.name === raceData.name)
+      let targetRace = this.$store.state.raceData.filter(raceData => race.place === raceData.place && race.round === raceData.round)
       this.horses = targetRace[0].horses
       this.horses.forEach(horse => horse.average = 0)
     },
@@ -49,7 +54,12 @@ export default {
     },
     sortByUmaaji() {
       this.horses.sort((a, b) => b.average - a.average)
-    }
+    },
+    raceData(place) {
+      return this.$store.state.raceData
+        .filter(race => race.place === place)
+        .sort((a, b) => a.round - b.round)
+    },
   },
   components: {
     Horse,
@@ -66,8 +76,15 @@ export default {
     float: left;
     width: 220px;
     height: 2215px;
-    #race {
+    #place_tabs {
+      margin-left: 10px;
       width: 210px;
+    }
+    #races {
+      margin-top: 10px;
+      #race {
+        width: 210px;
+      }
     }
   }
   #data {
