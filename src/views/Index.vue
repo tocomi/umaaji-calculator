@@ -14,9 +14,10 @@
       v-flex(xs10)
         div#data
           div#horses(v-if="isRaceSelected")
-            v-btn#sort(@click="sortByAverage") sort by average
-            v-btn#sort(@click="sortByMax") sort by max
-            v-btn#sort(@click="sortByNumber") sort by number
+            div#buttons
+              v-btn#sort(@click="sortByAverage") sort by average
+              v-btn#sort(@click="sortByMax") sort by max
+              v-btn#sort(@click="sortByNumber") sort by number
             transition-group(name="flip-list")
               Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
 </template>
@@ -103,6 +104,9 @@ export default {
     margin-left: 10px;
     .flip-list-move {
       transition: transform 1s;
+    }
+    #buttons {
+      text-align: left;
     }
   }
 }
