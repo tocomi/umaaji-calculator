@@ -13,11 +13,12 @@
                     RaceInfo(:race="race")
       v-flex(xs10)
         div#data
-          div#horses
-            v-btn#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
-            v-btn#sort(@click="sortByNumber" v-if="isRaceSelected") sort by number
+          div#horses(v-if="isRaceSelected")
+            v-btn#sort(@click="sortByAverage") sort by average
+            v-btn#sort(@click="sortByMax") sort by max
+            v-btn#sort(@click="sortByNumber") sort by number
             transition-group(name="flip-list")
-              Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setAverage="setAverage")
+              Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
 </template>
 
 <script>
@@ -52,13 +53,20 @@ export default {
     setHorseData(race) {
       let targetRace = this.$store.state.raceData.filter(raceData => race.place === raceData.place && race.round === raceData.round)
       this.horses = targetRace[0].horses
-      this.horses.forEach(horse => horse.average = 0)
+      this.horses.forEach(horse => {
+        horse.average = 0
+        horse.max = 0
+      })
     },
-    setAverage(horse, average) {
+    setScore(horse, average, max) {
       horse.average = average
+      horse.max = max
     },
-    sortByUmaaji() {
+    sortByAverage() {
       this.horses.sort((a, b) => b.average - a.average)
+    },
+    sortByMax() {
+      this.horses.sort((a, b) => b.max - a.max)
     },
     sortByNumber() {
       this.horses.sort((a, b) => a.number - b.number)

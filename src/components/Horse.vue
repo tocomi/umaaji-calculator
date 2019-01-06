@@ -4,12 +4,11 @@
       div#gate {{ horse.gate }}
       div#number {{ horse.number }}
     div#info
-      span#name {{ horse.name }}
+      div#name {{ horse.name }}
+      span#jockey {{ horse.jockey }}
       span#handi {{ horse.handi }}
       br
-      span#jockey {{ horse.jockey }}
-      br
-      span#score umaaji: {{ average }}
+      span#score AVG: {{ average }} MAX: {{ max }}
     PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
 
@@ -24,6 +23,7 @@ export default {
     return {
       score: 0,
       count: 0,
+      max: 0,
     }
   },
   computed: {
@@ -35,7 +35,10 @@ export default {
     addScore(raceScore) {
       this.score += raceScore
       this.count++
-      this.$emit('setAverage', this.horse, this.average)
+      if (raceScore > this.max) {
+        this.max = raceScore
+      }
+      this.$emit('setScore', this.horse, this.average, this.max)
     }
   },
   components: {
