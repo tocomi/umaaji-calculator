@@ -1,5 +1,8 @@
 <template lang="pug">
   div.horse
+    div#entry(:class="[ 'gate' + horse.gate ]")
+      div#gate {{ horse.gate }}
+      div#number {{ horse.number }}
     div#info
       span#name {{ horse.name }}
       span#handi {{ horse.handi }}
@@ -42,14 +45,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$height: 105px;
 .horse {
-  height: 106px;
+  height: $height + 1px;
+  #entry {
+    float: left;
+    height: $height;
+    line-height: $height;
+    #gate, #number {
+      float: left;
+      height: $height - 0.5px;
+      width: 20px;
+      border: solid 1px #AAA;
+    }
+    &.gate2 {
+      background-color: #111;
+      color: #FFF;
+    }
+    &.gate3 {
+      background-color: #D33;
+      color: #FFF;
+    }
+    &.gate4 {
+      background-color: #33D;
+      color: #FFF;
+    }
+    &.gate5 {
+      background-color: #EE3;
+    }
+    &.gate6 {
+      background-color: #080;
+      color: #FFF;
+    }
+    &.gate7 {
+      background-color: #D80;
+      color: #FFF;
+    }
+    &.gate8 {
+      background-color: #FCD;
+    }
+  }
   #info {
     float: left;
     width: 180px;
-    height: 105px;
+    height: $height;
     padding: 10px;
-    background-color: #1770BA;
+    background-color: #169;
     color: #DDD;
     #name {
       font-weight: bold;

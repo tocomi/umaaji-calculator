@@ -15,6 +15,7 @@
         div#data
           div#horses
             v-btn#sort(@click="sortByUmaaji" v-if="isRaceSelected") sort by umaaji
+            v-btn#sort(@click="sortByNumber" v-if="isRaceSelected") sort by number
             transition-group(name="flip-list")
               Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setAverage="setAverage")
 </template>
@@ -58,6 +59,9 @@ export default {
     },
     sortByUmaaji() {
       this.horses.sort((a, b) => b.average - a.average)
+    },
+    sortByNumber() {
+      this.horses.sort((a, b) => a.number - b.number)
     },
     raceData(place) {
       return this.$store.state.raceData
