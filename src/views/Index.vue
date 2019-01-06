@@ -109,7 +109,7 @@ export default {
     }
   }
   #data {
-    width: 1340px;
+    width: 1090px;
     margin-left: 10px;
     .flip-list-move {
       transition: transform 1s;
