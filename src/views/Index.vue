@@ -12,12 +12,13 @@
                   div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
                     RaceInfo(:race="race")
       v-flex(xs10)
-        div#data
-          div#horses(v-if="isRaceSelected")
-            div#buttons
-              v-btn#sort(@click="sortByAverage") sort by average
-              v-btn#sort(@click="sortByMax") sort by max
-              v-btn#sort(@click="sortByNumber") sort by number
+        v-card#data(v-if="isRaceSelected")
+          RaceHeader(:race="selectedRace")
+          div#buttons
+            v-btn#sort(@click="sortByAverage") sort by average
+            v-btn#sort(@click="sortByMax") sort by max
+            v-btn#sort(@click="sortByNumber") sort by number
+          div#horses
             transition-group(name="flip-list")
               Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
 </template>
@@ -25,6 +26,7 @@
 <script>
 import Horse from '../components/Horse.vue'
 import RaceInfo from '../components/RaceInfo.vue'
+import RaceHeader from '../components/RaceHeader.vue'
 import Loading from '../components/Loading.vue'
 
 export default {
@@ -32,6 +34,7 @@ export default {
   data() {
     return {
       horses: [],
+      selectedRace: {},
     }
   },
   created() {
@@ -42,7 +45,7 @@ export default {
       return this.$store.state.loading
     },
     isRaceSelected() {
-      return this.horses.length > 0
+      return Object.keys(this.selectedRace).length
     },
     racePlace() {
       const racePlace = new Set()
@@ -52,7 +55,8 @@ export default {
   },
   methods: {
     setHorseData(race) {
-      let targetRace = this.$store.state.raceData.filter(raceData => race.place === raceData.place && race.round === raceData.round)
+      const targetRace = this.$store.state.raceData.filter(raceData => race.place === raceData.place && race.round === raceData.round)
+      this.selectedRace = targetRace[0]
       this.horses = targetRace[0].horses
       this.horses.forEach(horse => {
         horse.average = 0
@@ -81,6 +85,7 @@ export default {
   components: {
     Horse,
     RaceInfo,
+    RaceHeader,
     Loading,
   }
 }
@@ -107,6 +112,10 @@ export default {
     }
     #buttons {
       text-align: left;
+    }
+    #horses {
+      margin-top: 5px;
+      margin-left: 10px;
     }
   }
 }
