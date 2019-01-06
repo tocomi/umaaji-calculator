@@ -4,10 +4,13 @@
       div#gate {{ horse.gate }}
       div#number {{ horse.number }}
     div#info
-      div#name {{ horse.name }}
-      span#jockey {{ horse.jockey }}
-      span#handi {{ horse.handi }}
-      br
+      div#name {{ horse.name }} {{ horse.sex}}{{ horse.age }}
+      div#race
+        span#jockey {{ horse.jockey }}
+        span#handi {{ horse.handi }} 
+      div#favorite
+        span#odds {{ horse.odds }} 
+        span#rank {{ rank }}
       span#score AVG: {{ average }} MAX: {{ max }}
     PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
@@ -29,6 +32,12 @@ export default {
   computed: {
     average() {
       return Math.round(this.score / this.count * 10) / 10
+    },
+    rank() {
+      if (this.horse.rank) {
+        return '(' + this.horse.rank + ')'
+      }
+      return ''
     }
   },
   methods: {
