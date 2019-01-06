@@ -1,6 +1,6 @@
 <template lang="pug">
   div#index
-    Loading(v-if="loading")
+    v-progress-circular(indeterminate color="primary" v-if="loading")
     v-layout
       v-flex(xs2)
         div#list(v-if="!loading")
