@@ -5,8 +5,8 @@
       v-flex(xs2)
         div#list(v-if="!loading")
           v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
-            v-tab(v-for="place in racePlace") {{ place }}
-            v-tab-item(v-for="place in racePlace")
+            v-tab(v-for="place in racePlace", :key="place") {{ place }}
+            v-tab-item(v-for="place in racePlace", :key="place")
               v-card
                 div#races
                   div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
