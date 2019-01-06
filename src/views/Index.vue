@@ -17,6 +17,7 @@
           div#buttons
             v-btn#sort(@click="sortByAverage") sort by average
             v-btn#sort(@click="sortByMax") sort by max
+            v-btn#sort(@click="sortByOdds") sort by odds
             v-btn#sort(@click="sortByNumber") sort by number
           div#horses
             transition-group(name="flip-list")
@@ -72,6 +73,9 @@ export default {
     },
     sortByMax() {
       this.horses.sort((a, b) => b.max - a.max)
+    },
+    sortByOdds() {
+      this.horses.sort((a, b) => a.odds - b.odds)
     },
     sortByNumber() {
       this.horses.sort((a, b) => a.number - b.number)
