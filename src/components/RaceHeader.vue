@@ -15,6 +15,6 @@ export default {
 #race_header {
   background-color: #394C82;
   color: #FFF;
-  font-size: 30px;
+  font-size: 26px;
 }
 </style>
