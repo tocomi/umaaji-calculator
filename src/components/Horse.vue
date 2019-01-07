@@ -11,7 +11,9 @@
       div#favorite
         span#odds {{ horse.odds }} 
         span#rank {{ rank }}
-      span#score AVG: {{ average }} MAX: {{ max }}
+      div#score
+        span#average AVG: {{ average }} 
+        span#max MAX: {{ max }}
     PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
 
@@ -97,20 +99,37 @@ $height: 105px;
       background-color: #FCD;
     }
   }
+  $info_width: 180px;
   #info {
     float: left;
-    width: 180px;
+    width: $info_width;
     height: $height;
     padding: 10px;
     background-color: #169;
     color: #DDD;
     #name {
+      position: absolute;
+      width: $info_width - 20px;
       font-weight: bold;
     }
-    #handi {
-      margin-left: 5px;
+    #race {
+      position: absolute;
+      width: $info_width - 20px;
+      margin-top: 20px;
+      #handi {
+        margin-left: 5px;
+      }
+    }
+    #favorite {
+      position: absolute;
+      width: $info_width - 20px;
+      margin-top: 40px;
+      font-size: 16px;
     }
     #score {
+      position: absolute;
+      width: $info_width - 20px;
+      margin-top: 70px;
       font-weight: bold;
     }
   }
