@@ -1,6 +1,6 @@
 <template lang="pug">
   div#race_header
-    span {{ race.place }}{{ race.round }}R {{race.ground}}{{ race.distance }} {{ race.name}}
+    span {{ race.place }}{{ race.round }}R {{race.ground}}{{ race.distance }} {{ race.name}} {{ grade }}
 </template>
 
 <script>
@@ -8,6 +8,14 @@ export default {
   props: {
     race: Object,
   },
+  computed: {
+    grade() {
+      if (/[0-9]{3,4}/.test(this.race.grade)) {
+        return this.race.grade + '万下'
+      }
+      return this.race.grade
+    }
+  }
 }
 </script>
 
