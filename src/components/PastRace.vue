@@ -95,11 +95,11 @@ export default {
   }
   #name {
     position: absolute;
-    margin-top: -10px;
+    margin-top: -8px;
     margin-left: -85px;
-    height: 24px;
+    height: 22px;
     width: 120px;
-    font-size: 14px;
+    font-size: 13px;
     color: #444;
     border-bottom: solid #666 1px;
     &.rest {
