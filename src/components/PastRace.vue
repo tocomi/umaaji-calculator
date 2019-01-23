@@ -66,8 +66,8 @@ export default {
   }
   #grade {
     position: absolute;
-    margin-top: -10px;
-    margin-left: 35px;
+    margin: -10px 0 0 35px;
+    padding: 2px 0 0 0;
     height: 24px;
     width: 50px;
     font-size: 14px;
@@ -95,8 +95,7 @@ export default {
   }
   #name {
     position: absolute;
-    margin-top: -8px;
-    margin-left: -85px;
+    margin: -8px 0 0 -85px;
     height: 22px;
     width: 120px;
     font-size: 13px;
@@ -112,8 +111,7 @@ export default {
   #cond_time {
     position: absolute;
     width: 170px;
-    margin-top: 15px;
-    margin-left: -90px;
+    margin: 15px 0 0 -90px;
     #condition {
       position: absolute;
       margin-left: 5px;
@@ -126,8 +124,7 @@ export default {
   }
   #score {
     position: absolute;
-    margin-top: 70px;
-    margin-left: -25px;
+    margin: 70px 0 0 -25px;
     width: 50px;
     font-weight: bold;
   }
