@@ -2,11 +2,12 @@
   div.horse
     Gate(:gate="horse.gate" :number="horse.number")
     div#info
-      div#name {{ horse.name }} {{ horse.sex}}{{ horse.age }}
+      div#name_age(:class="[ sexClass ]")
+        span#name {{ horse.name }}
+        span#age {{ horse.sex }}{{ horse.age }}
       div#race
         span#jockey {{ horse.jockey }}
         span#handi {{ horse.handi }} 
-      div#favorite
         span#odds {{ horse.odds }} 
         span#rank {{ rank }}
       div#score
@@ -39,6 +40,15 @@ export default {
         return '(' + this.horse.rank + ')'
       }
       return ''
+    },
+    sexClass() {
+      if (this.horse.sex === '牡') {
+        return 'male'
+      }
+      if (this.horse.sex === '牝') {
+        return 'female'
+      }
+      return ''
     }
   },
   methods: {
@@ -67,31 +77,63 @@ $height: 105px;
     float: left;
     width: $info_width;
     height: $height;
-    padding: 10px;
-    background-color: #169;
-    color: #DDD;
-    #name {
+    border: 1px solid #AAA;
+    #name_age {
       position: absolute;
-      width: $info_width - 20px;
+      padding: 2px 0 2px 0;
+      width: $info_width - 2px;
+      height: 24px;
       font-weight: bold;
+      background-color: #EEE;
+      &.male {
+        background-color: #2C53A9;
+        color: #EEE;
+      }
+      &.female {
+        background-color: #DC3C3C;
+        color: #EEE;
+      }
+      #name {
+        display: inline-block;
+        width: 139px;
+      }
+      #age {
+        display: inline-block;
+        width: 39px;
+      }
     }
     #race {
       position: absolute;
-      width: $info_width - 20px;
-      margin-top: 20px;
-      #handi {
-        margin-left: 5px;
+      height: 20px;
+      width: 180px;
+      margin-top: 25px;
+      font-size: 13px;
+      border-bottom: 1px solid #AAA;
+      #jockey {
+        display: inline-block;
+        height: inherit;
+        width: 70px;
       }
-    }
-    #favorite {
-      position: absolute;
-      width: $info_width - 20px;
-      margin-top: 40px;
-      font-size: 16px;
+      #handi {
+        display: inline-block;
+        height: inherit;
+        width: 25px;
+        margin: -1px 0 0 -1px;
+      }
+      #odds {
+        display: inline-block;
+        height: inherit;
+        width: 50px;
+      }
+      #rank {
+        display: inline-block;
+        height: inherit;
+        width: 30px;
+      }
     }
     #score {
       position: absolute;
-      width: $info_width - 20px;
+      width: $info_width;
       margin-top: 70px;
       font-weight: bold;
     }
