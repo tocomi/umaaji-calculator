@@ -1,8 +1,6 @@
 <template lang="pug">
   div.horse
-    div#entry(:class="[ 'gate' + horse.gate ]")
-      div#gate {{ horse.gate }}
-      div#number {{ horse.number }}
+    Gate(:gate="horse.gate" :number="horse.number")
     div#info
       div#name {{ horse.name }} {{ horse.sex}}{{ horse.age }}
       div#race
@@ -18,6 +16,7 @@
 </template>
 
 <script>
+import Gate from './Gate.vue'
 import PastRace from './PastRace.vue'
 
 export default {
@@ -53,6 +52,7 @@ export default {
     }
   },
   components: {
+    Gate: Gate,
     PastRace: PastRace,
   }
 }
@@ -62,43 +62,6 @@ export default {
 $height: 105px;
 .horse {
   height: $height + 1px;
-  #entry {
-    float: left;
-    height: $height;
-    line-height: $height;
-    #gate, #number {
-      float: left;
-      height: $height - 0.5px;
-      width: 20px;
-      border: solid 1px #AAA;
-    }
-    &.gate2 {
-      background-color: #111;
-      color: #FFF;
-    }
-    &.gate3 {
-      background-color: #D33;
-      color: #FFF;
-    }
-    &.gate4 {
-      background-color: #33D;
-      color: #FFF;
-    }
-    &.gate5 {
-      background-color: #EE3;
-    }
-    &.gate6 {
-      background-color: #080;
-      color: #FFF;
-    }
-    &.gate7 {
-      background-color: #D80;
-      color: #FFF;
-    }
-    &.gate8 {
-      background-color: #FCD;
-    }
-  }
   $info_width: 180px;
   #info {
     float: left;
