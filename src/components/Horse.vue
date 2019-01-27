@@ -107,6 +107,7 @@ $height: 105px;
       height: 20px;
       width: 180px;
       margin-top: 25px;
+      padding: 0 5px;
       font-size: 13px;
       border-bottom: 1px solid #AAA;
       #jockey {
@@ -123,7 +124,7 @@ $height: 105px;
       #odds {
         display: inline-block;
         height: inherit;
-        width: 50px;
+        width: 40px;
       }
       #rank {
         display: inline-block;
