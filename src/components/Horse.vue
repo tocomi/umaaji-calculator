@@ -10,15 +10,14 @@
         span#handi {{ horse.handi }} 
         span#odds {{ horse.odds }} 
         span#rank {{ rank }}
-      div#score
-        span#average AVG: {{ average }} 
-        span#max MAX: {{ max }}
+      Score(:max="max" :average="average")
     PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
 
 <script>
 import Gate from './Gate.vue'
 import PastRace from './PastRace.vue'
+import Score from './Score.vue'
 
 export default {
   props: {
@@ -64,6 +63,7 @@ export default {
   components: {
     Gate: Gate,
     PastRace: PastRace,
+    Score: Score,
   }
 }
 </script>
@@ -131,12 +131,6 @@ $height: 105px;
         height: inherit;
         width: 30px;
       }
-    }
-    #score {
-      position: absolute;
-      width: $info_width;
-      margin-top: 70px;
-      font-weight: bold;
     }
   }
 }
