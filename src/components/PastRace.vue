@@ -114,7 +114,7 @@ export default {
   }
   #place_date {
     position: absolute;
-    width: inherit;
+    width: 168px;
     margin: 15px 0 0 -10px;
     border-bottom: 1px solid #DDD;
     font-size: 13px;
@@ -125,21 +125,21 @@ export default {
     #date {
       display: inline-block;
       width: 60px;
+      margin: 0 0 0 20px;
     }
   }
   #cond_time {
     position: absolute;
-    width: 170px;
-    margin: 38px 0 0 -90px;
+    width: 168px;
+    margin: 37px 0 0 -10px;
+    border-bottom: 1px solid #DDD;
     font-size: 13px;
     #condition {
-      position: absolute;
-      margin-left: 5px;
+      display: inline-block;
     }
     #time {
-      position: absolute;
-      width: 90px;
-      margin-left: 70px;
+      display: inline-block;
+      margin: 0 0 0 20px;
     }
   }
   #score {
