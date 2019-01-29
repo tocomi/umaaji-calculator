@@ -2,10 +2,14 @@
   div.race(:class="{ rest: isRest }")
     span#grade(:class="[ grade ]") {{ race.grade }}
     span#name(:class="{ rest: isRest }") {{ race.name }}
-    div#cond_time
-      span#condition {{ race.ground }}{{ race.distance }} {{ race.status }}
-      span#time {{ race.time }} {{ diff }}
-    span#score(v-if="!isRest && !isExclusion") {{ score }}
+    template(v-if="!isRest && !isExclusion")
+      div#place_date
+        span#place {{ race.place }}
+        span#date {{ race.date }}
+      div#cond_time
+        span#condition {{ race.ground }}{{ race.distance }} {{ race.status }}
+        span#time {{ race.time }} {{ diff }}
+      span#score {{ score }}
 </template>
 
 <script>
@@ -95,9 +99,9 @@ export default {
   }
   #name {
     position: absolute;
-    margin: -8px 0 0 -85px;
     height: 22px;
     width: 120px;
+    margin: -8px 0 0 -85px;
     font-size: 13px;
     color: #444;
     border-bottom: solid #666 1px;
@@ -108,10 +112,26 @@ export default {
       background: none; 
     }
   }
+  #place_date {
+    position: absolute;
+    width: inherit;
+    margin: 15px 0 0 -10px;
+    border-bottom: 1px solid #DDD;
+    font-size: 13px;
+    #place {
+      display: inline-block;
+      width: 40px;
+    }
+    #date {
+      display: inline-block;
+      width: 60px;
+    }
+  }
   #cond_time {
     position: absolute;
     width: 170px;
-    margin: 15px 0 0 -90px;
+    margin: 38px 0 0 -90px;
+    font-size: 13px;
     #condition {
       position: absolute;
       margin-left: 5px;

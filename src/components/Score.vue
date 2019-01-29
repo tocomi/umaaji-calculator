@@ -26,10 +26,11 @@ export default {
   border-top: 1px solid #AAA;
   .label {
     display: inline-block;
-    background-color: #444;
-    color: #DDD;
-    height: inherited;
+    background-color: #2C53A9;
+    color: #EEE;
+    height: inherit;
     width: 40px;
+    font-size: 13px;
   }
   .score {
     display: inline-block;
