@@ -23,6 +23,9 @@ export default {
   props: {
     horse: Object,
   },
+  created() {
+    this.calculateInterval()
+  },
   data() {
     return {
       score: 0,
@@ -58,6 +61,26 @@ export default {
         this.max = raceScore
       }
       this.$emit('setScore', this.horse, this.average, this.max)
+    },
+    calculateInterval() {
+      let previousDate = 0
+      this.horse.past_races.slice().reverse().forEach(race => {
+        const date = this.culculateDay(race.date)
+        if (date === 0 || previousDate === 0) {
+          race.interval = 0
+          previousDate = date
+          return
+        }
+        race.interval = Math.round((date - previousDate) / 7)
+        previousDate = date
+      });
+    },
+    culculateDay(date) {
+      let dateArray = date.split('.')
+      if (dateArray.length < 3) {
+        return 0
+      }
+      return (Number(dateArray[0]) * 365) + (Number(dateArray[1]) * 30) + (Number(dateArray[2]))
     }
   },
   components: {
