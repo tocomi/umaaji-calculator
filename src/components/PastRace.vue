@@ -135,7 +135,10 @@ export default {
     #date {
       display: inline-block;
       width: 60px;
-      margin: 0 0 0 20px;
+    }
+    #interval {
+      display: inline-block;
+      width: 45px;
     }
   }
   #cond_time {
