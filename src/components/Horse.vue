@@ -84,9 +84,9 @@ export default {
     }
   },
   components: {
-    Gate: Gate,
-    PastRace: PastRace,
-    Score: Score,
+    Gate,
+    PastRace,
+    Score,
   }
 }
 </script>
