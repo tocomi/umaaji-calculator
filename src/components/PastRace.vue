@@ -6,6 +6,7 @@
       div#place_date
         span#place {{ race.place }}
         span#date {{ race.date }}
+        span#interval {{ interval }}
       div#cond_time
         span#condition {{ race.ground }}{{ race.distance }} {{ race.status }}
         span#time {{ race.time }} {{ diff }}
@@ -53,6 +54,15 @@ export default {
         return this.race.grade
       }
       return 'rest'
+    },
+    interval() {
+      if (this.race.interval === 0) {
+        return '-'
+      }
+      if (this.race.interval === 1) {
+        return '連闘'
+      }
+      return '中' + this.race.interval + '週'
     }
   }
 }
