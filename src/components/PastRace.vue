@@ -138,7 +138,11 @@ export default {
     }
     #interval {
       display: inline-block;
+<<<<<<< HEAD
       width: 50px;
+=======
+      width: 45px;
+>>>>>>> refs/remotes/origin/master
     }
   }
   #cond_time {
