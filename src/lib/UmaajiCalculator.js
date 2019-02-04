@@ -5,6 +5,7 @@ export default class {
 
     score = this._calculateDiff(score, Number(race.diff))
     score = this._calculateGrade(score, race.grade)
+    score = this._calculatePlace(score, race.place)
 
     return Math.round(score * 10) / 10
   }
@@ -38,5 +39,17 @@ export default class {
       return score * 0.7
     }
     return score * 0.5
+  }
+
+  _calculatePlace(score, place) {
+    const subPlaces = ['札幌', '函館', '福島', '新潟', '中京', '小倉']
+    const localPlaces = ['盛岡', '浦和', '高知', '園田', '佐賀']
+    if (subPlaces.includes(place)) {
+      return score * 0.9
+    }
+    if (localPlaces.includes(place)) {
+      return score * 0.3
+    }
+    return score
   }
 }
