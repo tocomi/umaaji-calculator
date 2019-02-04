@@ -10,43 +10,33 @@ export default class {
   }
 
   _calculateDiff(score, diff) {
-    if (diff < -0.5) {
-      score += 20
-    }
-    if (diff < -0.2 && diff >= -0.5) {
-      score += 17
-    }
-    if (diff < 0 && diff >= -0.2) {
-      score += 15
-    }
-    if (diff < 0.2 && diff >= 0) {
-      score += 13
-    }
-    if (diff < 0.5 && diff >= 0.2) {
-      score += 10
-    }
-    if (diff < 0.7 && diff >= 0.5) {
-      score += 8
-    }
-    if (diff < 1 && diff >= 0.7) {
-      score += 5
-    }
-    return score
+    const baseScore = 50
+    const calculatedScore = baseScore - (diff * 10 * 2)
+    return calculatedScore > 0 ? calculatedScore : 0
   }
 
   _calculateGrade(score, grade) {
     if (grade === 'G1') {
-      return score *= 2
+      return score * 1.7
     }
     if (grade === 'G2') {
-      return score *= 1.7
+      return score * 1.5
     }
     if (grade === 'G3') {
-      return score *= 1.4
+      return score * 1.3
     }
     if (grade === 'OP') {
-      return score *= 1.2
+      return score * 1.1
     }
-    return score
+    if (grade === '1600') {
+      return score
+    }
+    if (grade === '1000') {
+      return score * 0.9
+    }
+    if (grade === '500') {
+      return score * 0.7
+    }
+    return score * 0.5
   }
 }
