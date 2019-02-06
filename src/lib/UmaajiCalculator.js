@@ -33,7 +33,7 @@ export default class {
       return score
     }
     if (grade === '1000') {
-      return score * 0.9
+      return score * 0.85
     }
     if (grade === '500') {
       return score * 0.7
