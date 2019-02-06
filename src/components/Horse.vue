@@ -6,10 +6,12 @@
         span#name {{ horse.name }}
         span#age {{ horse.sex }}{{ horse.age }}
       div#race
-        span#jockey {{ horse.jockey }}
-        span#handi {{ horse.handi }} 
-        span#odds {{ horse.odds }} 
-        span#rank {{ rank }}
+        div#jocket_handi
+          span#jockey {{ horse.jockey }} 
+          span#handi {{ horse.handi }} 
+        div#odds_rank
+          span#odds {{ horse.odds }} 
+          span#rank {{ rank }}
       Score(:max="max" :average="average")
     PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
@@ -127,33 +129,13 @@ $height: 105px;
     }
     #race {
       position: absolute;
+      display: flex;
+      justify-content: space-around;
       height: 20px;
       width: 180px;
       margin-top: 25px;
-      padding: 0 5px;
       font-size: 13px;
       border-bottom: 1px solid #AAA;
-      #jockey {
-        display: inline-block;
-        height: inherit;
-        width: 70px;
-      }
-      #handi {
-        display: inline-block;
-        height: inherit;
-        width: 25px;
-        margin: -1px 0 0 -1px;
-      }
-      #odds {
-        display: inline-block;
-        height: inherit;
-        width: 40px;
-      }
-      #rank {
-        display: inline-block;
-        height: inherit;
-        width: 30px;
-      }
     }
   }
 }
