@@ -43,7 +43,7 @@ export default class {
 
   _calculatePlace(score, place) {
     const subPlaces = ['札幌', '函館', '福島', '新潟', '中京', '小倉']
-    const localPlaces = ['盛岡', '浦和', '高知', '園田', '佐賀']
+    const localPlaces = ['盛岡', '浦和', '船橋', '名古屋', '高知', '園田', '佐賀']
     if (subPlaces.includes(place)) {
       return score * 0.9
     }
