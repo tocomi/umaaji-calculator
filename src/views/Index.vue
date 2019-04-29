@@ -20,7 +20,7 @@
               v-btn#sort(@click="sortByOdds") sort by odds
               v-btn#sort(@click="sortByNumber") sort by number
         div#data-content(v-if="isRaceSelected")
-          v-card#data-content-card
+          v-card
             div#horses
               transition-group(name="flip-list")
                 Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
@@ -107,6 +107,7 @@ export default {
     #list {
       height: calc(100vh - 64px);
       width: 100%;
+      background-color: #FAFAFA;
       #place_tabs {
         width: 100%;
       }
@@ -121,8 +122,9 @@ export default {
   #data-flex {
     #data-header {
       border-bottom: 1px solid #DDDDDD;
+      background-color: #FAFAFA;
       #data-header-card {
-        width: 1090px;
+        max-width: 1070px;
         margin: 20px 0 20px 20px;
       }
       #buttons {
@@ -132,15 +134,11 @@ export default {
     #data-content {
       height: calc(100vh - 64px - 138px);
       overflow: scroll;
-      background-color: #FAFAFA;
-      #data-content-card {
-        width: 1090px;
-        margin: 20px 0 0 20px;
+      #horses {
+        min-width: 1090px;
+        padding: 20px 0 10px 20px;
         .flip-list-move {
           transition: transform 1s;
-        }
-        #horses {
-          padding: 10px 0 10px 10px;
         }
       }
     }
