@@ -12,16 +12,19 @@
                   div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
                     RaceInfo(:race="race")
       v-flex#data-flex(xs12 lg10)
-        v-card#data(v-if="isRaceSelected")
-          RaceHeader(:race="selectedRace")
-          div#buttons
-            v-btn#sort(@click="sortByAverage") sort by average
-            v-btn#sort(@click="sortByMax") sort by max
-            v-btn#sort(@click="sortByOdds") sort by odds
-            v-btn#sort(@click="sortByNumber") sort by number
-          div#horses
-            transition-group(name="flip-list")
-              Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
+        div#data-header(v-if="isRaceSelected")
+          v-card#data-header-card
+            RaceHeader(:race="selectedRace")
+            div#buttons
+              v-btn#sort(@click="sortByAverage") sort by average
+              v-btn#sort(@click="sortByMax") sort by max
+              v-btn#sort(@click="sortByOdds") sort by odds
+              v-btn#sort(@click="sortByNumber") sort by number
+        div#data-content(v-if="isRaceSelected")
+          v-card#data-content-card
+            div#horses
+              transition-group(name="flip-list")
+                Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
 </template>
 
 <script>
@@ -103,6 +106,7 @@ export default {
   #list-flex {
     border-right: 1px solid #DDDDDD;
     #list {
+      height: calc(100vh - 64px - 20px);
       width: 220px;
       #place_tabs {
         margin: 20px 0 0 20px;
@@ -114,21 +118,29 @@ export default {
     }
   }
   #data-flex {
-    background-color: #FAFAFA;
-    height: calc(100vh - 64px);
-    overflow: scroll;
-    #data {
-      width: 1090px;
-      margin: 20px 0 0 20px;
-      .flip-list-move {
-        transition: transform 1s;
+    #data-header {
+      border-bottom: 1px solid #DDDDDD;
+      #data-header-card {
+        width: 1090px;
+        margin: 20px 0 20px 20px;
       }
       #buttons {
         text-align: left;
       }
-      #horses {
-        margin-top: 5px;
-        margin-left: 10px;
+    }
+    #data-content {
+      height: calc(100vh - 64px - 138px);
+      overflow: scroll;
+      background-color: #FAFAFA;
+      #data-content-card {
+        width: 1090px;
+        margin: 20px 0 0 20px;
+        .flip-list-move {
+          transition: transform 1s;
+        }
+        #horses {
+          padding: 10px 0 10px 10px;
+        }
       }
     }
   }
