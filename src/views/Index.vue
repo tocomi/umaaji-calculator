@@ -105,7 +105,7 @@ export default {
   #list-flex {
     border-right: 1px solid #DDDDDD;
     #list {
-      height: calc(100vh - 64px - 20px);
+      height: calc(100vh - 64px);
       width: 100%;
       #place_tabs {
         width: 100%;
