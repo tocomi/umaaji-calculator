@@ -7,10 +7,9 @@
           v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
             v-tab(v-for="place in racePlace", :key="place") {{ place }}
             v-tab-item(v-for="place in racePlace", :key="place")
-              v-card
-                div#races
-                  div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
-                    RaceInfo(:race="race")
+              div#races
+                div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
+                  RaceInfo(:race="race")
       v-flex#data-flex(xs12 lg10)
         div#data-header(v-if="isRaceSelected")
           v-card#data-header-card
@@ -107,13 +106,15 @@ export default {
     border-right: 1px solid #DDDDDD;
     #list {
       height: calc(100vh - 64px - 20px);
-      width: 220px;
+      width: 100%;
       #place_tabs {
-        margin: 20px 0 0 20px;
-        width: 210px;
+        width: 100%;
       }
-      #race {
-        width: 210px;
+      #races {
+        padding: 5px 0 0 0;
+        #race {
+          width: 100%;
+        }
       }
     }
   }
