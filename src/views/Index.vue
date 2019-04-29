@@ -1,8 +1,8 @@
 <template lang="pug">
   div#index
-    v-progress-circular(indeterminate color="primary" v-if="loading")
+    v-progress-circular.circular(indeterminate color="primary" v-if="loading")
     v-layout
-      v-flex(xs12 lg2)
+      v-flex#list-flex(xs12 lg2)
         div#list(v-if="!loading")
           v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
             v-tab(v-for="place in racePlace", :key="place") {{ place }}
@@ -11,7 +11,7 @@
                 div#races
                   div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
                     RaceInfo(:race="race")
-      v-flex(xs12 lg10)
+      v-flex#data-flex(xs12 lg10)
         v-card#data(v-if="isRaceSelected")
           RaceHeader(:race="selectedRace")
           div#buttons
@@ -97,29 +97,39 @@ export default {
 
 <style lang="scss" scoped>
 #index {
-  margin-top: 30px;
-  #list {
-    width: 220px;
-    #place_tabs {
-      margin-left: 10px;
-      width: 210px;
-    }
-    #race {
-      width: 210px;
+  .circular {
+    margin: 20px 0 0 0;
+  }
+  #list-flex {
+    border-right: 1px solid #DDDDDD;
+    #list {
+      width: 220px;
+      #place_tabs {
+        margin: 20px 0 0 20px;
+        width: 210px;
+      }
+      #race {
+        width: 210px;
+      }
     }
   }
-  #data {
-    width: 1090px;
-    margin-left: 10px;
-    .flip-list-move {
-      transition: transform 1s;
-    }
-    #buttons {
-      text-align: left;
-    }
-    #horses {
-      margin-top: 5px;
-      margin-left: 10px;
+  #data-flex {
+    background-color: #FAFAFA;
+    height: calc(100vh - 64px);
+    overflow: scroll;
+    #data {
+      width: 1090px;
+      margin: 20px 0 0 20px;
+      .flip-list-move {
+        transition: transform 1s;
+      }
+      #buttons {
+        text-align: left;
+      }
+      #horses {
+        margin-top: 5px;
+        margin-left: 10px;
+      }
     }
   }
 }

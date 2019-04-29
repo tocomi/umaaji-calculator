@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <Index msg="Welcome to Your Vue.js App"/>
+    <Header/>
+    <Index/>
   </div>
 </template>
 
