@@ -26,7 +26,7 @@ export default class {
     if (grade === 'G3') {
       return score * 1.3
     }
-    if (grade === 'OP') {
+    if (grade === 'OP' || grade === 'L') {
       return score * 1.1
     }
     if (grade === '1600') {
