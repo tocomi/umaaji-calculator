@@ -25,12 +25,12 @@
             div#horses
               transition-group(name="flip-list")
                 template(v-if="isDetailMode")
-                  Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
+                  HorseDetail(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
                 template(v-if="!isDetailMode")
 </template>
 
 <script>
-import Horse from '../components/Horse.vue'
+import HorseDetail from '../components/HorseDetail.vue'
 import RaceInfo from '../components/RaceInfo.vue'
 import RaceHeader from '../components/RaceHeader.vue'
 import Loading from '../components/Loading.vue'
@@ -93,7 +93,7 @@ export default {
     },
   },
   components: {
-    Horse,
+    HorseDetail,
     RaceInfo,
     RaceHeader,
     Loading,
