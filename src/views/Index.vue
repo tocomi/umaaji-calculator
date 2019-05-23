@@ -19,11 +19,14 @@
               v-btn#sort(@click="sortByMax") sort by max
               v-btn#sort(@click="sortByOdds") sort by odds
               v-btn#sort(@click="sortByNumber") sort by number
+              v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
         div#data-content(v-if="isRaceSelected")
           v-card
             div#horses
               transition-group(name="flip-list")
-                Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
+                template(v-if="isDetailMode")
+                  Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
+                template(v-if="!isDetailMode")
 </template>
 
 <script>
@@ -38,6 +41,7 @@ export default {
     return {
       horses: [],
       selectedRace: {},
+      isDetailMode: false,
     }
   },
   created() {
