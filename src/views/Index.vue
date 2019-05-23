@@ -2,7 +2,7 @@
   div#index
     v-progress-circular.circular(indeterminate color="primary" v-if="loading")
     v-layout
-      v-flex#list-flex(xs12 lg2)
+      v-flex#list-flex(xs3 lg2)
         div#list(v-if="!loading")
           v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
             v-tab(v-for="place in racePlace", :key="place") {{ place }}
@@ -10,7 +10,7 @@
               div#races
                 div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
                   RaceInfo(:race="race")
-      v-flex#data-flex(xs12 lg10)
+      v-flex#data-flex(xs9 lg10)
         div#data-header(v-if="isRaceSelected")
           v-card#data-header-card
             RaceHeader(:race="selectedRace")
