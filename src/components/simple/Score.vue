@@ -19,9 +19,8 @@ export default {
 #score {
   display: flex;
   justify-content: space-between;
-  position: absolute;
   width: 180px;
-  margin-top: 83px;
+  height: 66px;
   font-weight: bold;
   border-top: 1px solid #AAA;
   .label {

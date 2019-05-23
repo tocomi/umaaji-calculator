@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 105px;
+$height: 66px;
 #entry {
   float: left;
   height: $height;

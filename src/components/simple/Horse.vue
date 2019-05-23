@@ -12,7 +12,7 @@
         div#odds_rank
           span#odds {{ horse.odds }} 
           span#rank {{ rank }}
-      Score(:max="max" :average="average")
+    Score(:max="max" :average="average")
     div(v-show="false")
       PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 105px;
+$height: 66px;
 .horse {
   height: $height + 1px;
   $info_width: 180px;
@@ -106,9 +106,10 @@ $height: 105px;
     border: 1px solid #AAA;
     #name_age {
       position: absolute;
-      padding: 2px 0 2px 0;
+      padding: 10px 0 2px 0;
       width: $info_width - 2px;
-      height: 24px;
+      height: 44px;
+      font-size: 14px;
       font-weight: bold;
       background-color: #EEE;
       &.male {
@@ -134,7 +135,7 @@ $height: 105px;
       justify-content: space-around;
       height: 20px;
       width: 180px;
-      margin-top: 25px;
+      margin-top: 45px;
       font-size: 13px;
       border-bottom: 1px solid #AAA;
     }
