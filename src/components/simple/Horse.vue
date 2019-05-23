@@ -12,7 +12,7 @@
         div#odds_rank
           span#odds {{ horse.odds }} 
           span#rank {{ rank }}
-    Score(:max="max" :average="average")
+    Score(:odds="horse.odds" :rank="horse.rank" :max="max" :average="average")
     div(v-show="false")
       PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
