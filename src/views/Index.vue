@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Horse from '../components/Horse.vue'
-import HorseDetail from '../components/HorseDetail.vue'
+import Horse from '../components/simple/Horse.vue'
+import HorseDetail from '../components/detail/HorseDetail.vue'
 import RaceInfo from '../components/RaceInfo.vue'
 import RaceHeader from '../components/RaceHeader.vue'
 import Loading from '../components/Loading.vue'

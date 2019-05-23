@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Gate from './Gate.vue'
-import PastRace from './PastRace.vue'
-import Score from './Score.vue'
+import Gate from './GateDetail.vue'
+import PastRace from '../PastRace.vue'
+import Score from './ScoreDetail.vue'
 
 export default {
   props: {

@@ -19,7 +19,7 @@
 
 <script>
 import Gate from './Gate.vue'
-import PastRace from './PastRace.vue'
+import PastRace from '../PastRace.vue'
 import Score from './Score.vue'
 
 export default {
