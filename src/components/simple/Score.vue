@@ -1,11 +1,14 @@
 <template lang="pug">
   div#score
-    span#average_label.label ODD
-    span#average.score {{ odds }}  {{ rank }} 
-    span#average_label.label AVG
-    span#average.score {{ average }} 
-    span#max_label.label MAX
-    span#max.score {{ max }}
+    span#rank_odds.score
+      p#odds_rank.rank {{ rank }} 
+      p#odds {{ odds }}
+    span#average.score
+      p#average_rank.rank 1
+      p#average_score {{ average }}
+    span#max.score
+      p#max_rank.rank 1
+      p#max_score {{ max }}
 </template>
 
 <script>
@@ -23,21 +26,21 @@ export default {
 #score {
   display: flex;
   justify-content: space-between;
-  width: 210px;
-  height: 66px;
+  width: 135px;
+  height: 46px;
   font-weight: bold;
   border-top: 1px solid #AAA;
-  .label {
-    display: inline-block;
-    background-color: #333;
-    color: #EEE;
-    height: inherit;
-    width: 50px;
-    font-size: 13px;
+  border-bottom: 1px solid #AAA;
+  p {
+    margin: 0;
   }
   .score {
     display: inline-block;
     width: 60px;
+    border-right: 1px solid #AAA;
+  }
+  .rank {
+    font-size: 18px;
   }
 }
 </style>

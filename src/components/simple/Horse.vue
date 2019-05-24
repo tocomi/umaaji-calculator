@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 66px;
+$height: 46px;
 .horse {
   height: $height + 1px;
   $info_width: 180px;
@@ -106,19 +106,17 @@ $height: 66px;
     border: 1px solid #AAA;
     #name_age {
       position: absolute;
-      padding: 10px 0 2px 0;
+      padding: 2px 0 2px 0;
       width: $info_width - 2px;
-      height: 44px;
+      height: 24px;
       font-size: 14px;
       font-weight: bold;
-      background-color: #EEE;
+      border-bottom: solid 1px #CCC;
       &.male {
-        background-color: #2C53A9;
-        color: #EEE;
+        color: #2C42B8;
       }
       &.female {
-        background-color: #DC3C3C;
-        color: #EEE;
+        color: #DC3C3C;
       }
       #name {
         display: inline-block;
@@ -135,7 +133,7 @@ $height: 66px;
       justify-content: space-around;
       height: 20px;
       width: 180px;
-      margin-top: 45px;
+      margin-top: 25px;
       font-size: 13px;
       border-bottom: 1px solid #AAA;
     }
