@@ -23,11 +23,12 @@
         div#data-content(v-if="isRaceSelected")
           v-card
             div#horses
-              transition-group(name="flip-list")
-                template(v-if="isDetailMode")
+              template(v-if="isDetailMode")
+                transition-group(name="flip-list")
                   HorseDetail(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
-                template(v-else)
-                  ScoreHeader
+              template(v-else)
+                ScoreHeader
+                transition-group(name="flip-list")
                   Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
 </template>
 
