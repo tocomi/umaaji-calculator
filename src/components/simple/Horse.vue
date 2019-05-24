@@ -4,14 +4,11 @@
     div#info
       div#name_age(:class="[ sexClass ]")
         span#name {{ horse.name }}
-        span#age {{ horse.sex }}{{ horse.age }}
       div#race
+        span#age {{ horse.sex }}{{ horse.age }}
         div#jocket_handi
           span#jockey {{ horse.jockey }} 
           span#handi {{ horse.handi }} 
-        div#odds_rank
-          span#odds {{ horse.odds }} 
-          span#rank {{ rank }}
     Score(:odds="horse.odds" :rank="horse.rank" :max="max" :average="average")
     div(v-show="false")
       PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
@@ -98,7 +95,7 @@ export default {
 $height: 46px;
 .horse {
   height: $height + 1px;
-  $info_width: 180px;
+  $info_width: 150px;
   #info {
     float: left;
     width: $info_width;
@@ -132,7 +129,7 @@ $height: 46px;
       display: flex;
       justify-content: space-around;
       height: 20px;
-      width: 180px;
+      width: $info_width;
       margin-top: 25px;
       font-size: 13px;
       border-bottom: 1px solid #AAA;
