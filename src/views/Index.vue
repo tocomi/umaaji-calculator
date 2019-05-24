@@ -27,6 +27,7 @@
                 template(v-if="isDetailMode")
                   HorseDetail(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
                 template(v-else)
+                  ScoreHeader
                   Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
 </template>
 
@@ -35,6 +36,7 @@ import Horse from '../components/simple/Horse.vue'
 import HorseDetail from '../components/detail/HorseDetail.vue'
 import RaceInfo from '../components/RaceInfo.vue'
 import RaceHeader from '../components/RaceHeader.vue'
+import ScoreHeader from '../components/simple/ScoreHeader.vue'
 import Loading from '../components/Loading.vue'
 
 export default {
@@ -99,6 +101,7 @@ export default {
     HorseDetail,
     RaceInfo,
     RaceHeader,
+    ScoreHeader,
     Loading,
   }
 }
