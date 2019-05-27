@@ -78,6 +78,50 @@ export default {
     setScore(horse, average, max) {
       horse.average = average
       horse.max = max
+      this.calculateRank()
+    },
+    calculateRank() {
+      const last = this.horses.slice(-1)[0]
+      if (last.max === 0 && last.average === 0) {
+        return
+      }
+
+      const averageScores = []
+      const maxScores = []
+      this.horses.forEach((horse) => {
+        averageScores.push(horse.average)
+        maxScores.push(horse.max)
+      })
+
+      const averageRanks = this.makeRankArray(averageScores)
+      const maxRanks = this.makeRankArray(maxScores)
+
+      this.horses.forEach((horse, index) => {
+        horse.averageRank = averageRanks[index]
+        horse.maxRank = maxRanks[index]
+      })
+    },
+    makeRankArray(scores) {
+      const ranks = []
+      const checked = []
+      scores.forEach((score) => {
+        if (ranks.length === 0) {
+          ranks.push(1)
+          checked.push(score)
+          return
+        }
+        let rank = 1
+        checked.forEach((checkedScore, index) => {
+          if (score < checkedScore) {
+            rank++
+          } else if (score > checkedScore) {
+            ranks[index]++
+          }
+        })
+        ranks.push(rank)
+        checked.push(score)
+      })
+      return ranks
     },
     sortByAverage() {
       this.horses.sort((a, b) => b.average - a.average)

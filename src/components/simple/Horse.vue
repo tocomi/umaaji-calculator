@@ -9,7 +9,7 @@
         div#jocket_handi
           span#jockey {{ horse.jockey }} 
           span#handi {{ horse.handi }} 
-    Score(:odds="Number(horse.odds)" :rank="Number(horse.rank)" :max="max" :average="average")
+    Score(:odds="Number(horse.odds)" :rank="Number(horse.rank)" :max="max" :average="average" :maxRank="horse.maxRank" :averageRank="horse.averageRank")
     div(v-show="false")
       PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>

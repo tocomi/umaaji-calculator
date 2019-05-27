@@ -4,10 +4,10 @@
       p#odds_rank.rank {{ rank }} 
       p#odds {{ odds }}
     span#average.score
-      p#average_rank.rank 1
+      p#average_rank.rank {{ averageRank }}
       p#average_score {{ average }}
     span#max.score
-      p#max_rank.rank 1
+      p#max_rank.rank {{ maxRank }}
       p#max_score {{ max }}
 </template>
 
@@ -18,6 +18,8 @@ export default {
     rank: Number,
     average: Number,
     max: Number,
+    averageRank: Number,
+    maxRank: Number,
   }
 }
 </script>
