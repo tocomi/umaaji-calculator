@@ -21,6 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 #race_header {
+  height: 48px;
   background-color: #394C82;
   color: #FFF;
   padding: 5px;

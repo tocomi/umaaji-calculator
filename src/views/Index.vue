@@ -12,15 +12,14 @@
                   RaceInfo(:race="race")
       v-flex#data-flex(xs8 lg10)
         div#data-header(v-if="isRaceSelected")
-          v-card#data-header-card
-            RaceHeader(:race="selectedRace")
-            div#buttons
-              v-btn.sort-button(@click="sortByAverage") average
-              v-btn.sort-button(@click="sortByMax") max
-              v-btn.sort-button(@click="sortByOdds") odds
-              v-btn.sort-button(@click="sortByNumber") number
-            div#options
-              v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
+          RaceHeader(:race="selectedRace")
+          div#buttons
+            v-btn.sort-button(@click="sortByAverage") average
+            v-btn.sort-button(@click="sortByMax") max
+            v-btn.sort-button(@click="sortByOdds") odds
+            v-btn.sort-button(@click="sortByNumber") number
+          div#options
+            v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
         div#data-content(v-if="isRaceSelected")
           v-card
             div#horses
