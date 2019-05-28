@@ -15,10 +15,10 @@
           v-card#data-header-card
             RaceHeader(:race="selectedRace")
             div#buttons
-              v-btn#sort(@click="sortByAverage") sort by average
-              v-btn#sort(@click="sortByMax") sort by max
-              v-btn#sort(@click="sortByOdds") sort by odds
-              v-btn#sort(@click="sortByNumber") sort by number
+              v-btn.sort-button(@click="sortByAverage") average
+              v-btn.sort-button(@click="sortByMax") max
+              v-btn.sort-button(@click="sortByOdds") odds
+              v-btn.sort-button(@click="sortByNumber") number
               v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
         div#data-content(v-if="isRaceSelected")
           v-card
@@ -184,6 +184,9 @@ export default {
       }
       #buttons {
         text-align: left;
+        .sort-button {
+          height: 30px;
+        }
       }
     }
     #data-content {
