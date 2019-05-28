@@ -197,7 +197,7 @@ export default {
       height: calc(100vh - 64px - 138px);
       overflow: scroll;
       #horses {
-        min-width: 1090px;
+        // min-width: 1090px;
         padding: 20px 0 10px 20px;
         .flip-list-move {
           transition: transform 1s;
