@@ -176,6 +176,7 @@ export default {
   }
   #data-flex {
     #data-header {
+      height: 135px;
       border-bottom: 1px solid #DDDDDD;
       background-color: #FAFAFA;
       #data-header-card {
