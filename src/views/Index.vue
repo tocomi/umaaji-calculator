@@ -18,7 +18,7 @@
             v-btn.sort-button(@click="sortByMax") max
             v-btn.sort-button(@click="sortByOdds") odds
             v-btn.sort-button(@click="sortByNumber") number
-          //- div#options
+          div#options
             v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
         div#data-content(v-if="isRaceSelected")
           v-card
@@ -176,7 +176,7 @@ export default {
   }
   #data-flex {
     #data-header {
-      height: 100px;
+      height: 135px;
       border-bottom: 1px solid #DDDDDD;
       background-color: #FAFAFA;
       #data-header-card {
