@@ -22,7 +22,7 @@
             v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
         div#data-content(v-if="isRaceSelected")
           v-card
-            div#horses
+            div#horses(:class="{ detail: isDetailMode }")
               template(v-if="isDetailMode")
                 transition-group(name="flip-list")
                   HorseDetail(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
@@ -197,8 +197,10 @@ export default {
       height: calc(100vh - 64px - 138px);
       overflow: scroll;
       #horses {
-        // min-width: 1090px;
         padding: 20px 0 10px 20px;
+        &.detail {
+          min-width: 1090px;
+        }
         .flip-list-move {
           transition: transform 1s;
         }
