@@ -7,13 +7,7 @@
     v-progress-circular.circular(indeterminate color="primary" v-if="loading")
     v-layout
       v-flex#list-flex(hidden-xs-only lg2)
-        div#list(v-if="!loading")
-          v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
-            v-tab(v-for="place in racePlace", :key="place") {{ place }}
-            v-tab-item(v-for="place in racePlace", :key="place")
-              div#races
-                div#race(v-for="race in raceData(place)", :key="race.place + race.round", @click="setHorseData(race)")
-                  RaceInfo(:race="race")
+        RaceList(:loading="loading" :racePlace="racePlace" @setHorseData="setHorseData")
       v-flex#data-flex(lg10)
         div#data-header(v-if="isRaceSelected")
           RaceHeader(:race="selectedRace")
@@ -39,6 +33,7 @@
 <script>
 import Horse from '../components/simple/Horse.vue'
 import HorseDetail from '../components/detail/HorseDetail.vue'
+import RaceList from '../components/RaceList.vue'
 import RaceInfo from '../components/RaceInfo.vue'
 import RaceHeader from '../components/RaceHeader.vue'
 import ScoreHeader from '../components/simple/ScoreHeader.vue'
@@ -148,6 +143,7 @@ export default {
   components: {
     Horse,
     HorseDetail,
+    RaceList,
     RaceInfo,
     RaceHeader,
     ScoreHeader,
