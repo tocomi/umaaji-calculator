@@ -193,7 +193,6 @@ export default {
       }
     }
     #data-content {
-      height: calc(100vh - 64px - 138px);
       overflow: scroll;
       #horses {
         padding: 20px 0 10px 20px;
