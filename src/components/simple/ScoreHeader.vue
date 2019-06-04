@@ -8,9 +8,6 @@
         span#max.score MAX
 </template>
 
-<script>
-</script>
-
 <style lang="scss" scoped>
 $height: 40px;
 #score_header {
