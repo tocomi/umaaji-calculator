@@ -2,8 +2,7 @@
   div#index
     v-layout
       v-flex(hidden-sm-and-up)
-        v-toolbar
-          v-btn(flat) races
+        RaceList(:loading="loading" :racePlace="racePlace" @setHorseData="setHorseData")
     v-progress-circular.circular(indeterminate color="primary" v-if="loading")
     v-layout
       v-flex#list-flex(hidden-xs-only lg2)
