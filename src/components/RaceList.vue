@@ -33,4 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#races {
+  text-align: center;
+}
 </style>

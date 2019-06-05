@@ -2,7 +2,12 @@
   div#index
     v-layout
       v-flex(hidden-sm-and-up)
-        RaceList(:loading="loading" :racePlace="racePlace" @setHorseData="setHorseData")
+        v-expansion-panel(v-model="expanded" expand)
+          v-expansion-panel-content
+            template(v-slot:header)
+              div Races
+            div(text-xs-center)
+              RaceList(:loading="loading" :racePlace="racePlace" @setHorseData="setHorseData")
     v-progress-circular.circular(indeterminate color="primary" v-if="loading")
     v-layout
       v-flex#list-flex(hidden-xs-only lg2)
@@ -45,6 +50,7 @@ export default {
       horses: [],
       selectedRace: {},
       isDetailMode: false,
+      expanded: [ true ],
     }
   },
   created() {
@@ -72,6 +78,10 @@ export default {
         horse.average = 0
         horse.max = 0
       })
+      this.closeRaceList()
+    },
+    closeRaceList() {
+      this.expanded = []
     },
     setScore(horse, average, max) {
       horse.average = average
