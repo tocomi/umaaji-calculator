@@ -30,7 +30,6 @@ export default {
   justify-content: space-between;
   width: 135px;
   height: 46px;
-  font-weight: bold;
   border-top: 1px solid #AAA;
   border-bottom: 1px solid #AAA;
   p {
@@ -43,6 +42,7 @@ export default {
   }
   .rank {
     font-size: 18px;
+    font-weight: bold;
   }
 }
 </style>
