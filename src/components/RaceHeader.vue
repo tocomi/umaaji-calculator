@@ -1,6 +1,9 @@
 <template lang="pug">
   div#race_header
-    span {{ race.place }}{{ race.round }}R {{race.ground}}{{ race.distance }} {{ race.name}} {{ grade }}
+    span#place {{ race.place }}{{ race.round }}R
+    span#ground {{race.ground }}{{ race.distance }}
+    span#grade {{ grade }}
+    span#name {{ race.name }}
 </template>
 
 <script>
@@ -25,6 +28,27 @@ export default {
   background-color: #394C82;
   color: #FFF;
   padding: 5px;
-  font-size: 26px;
+  text-align: left;
+  #place {
+    position: absolute;
+    margin: -5px 0 0 10px;
+    font-size: 16px;
+  }
+  #ground {
+    position: absolute;
+    margin: 17px 0 0 10px;
+    font-size: 16px;
+  }
+  #grade {
+    position: absolute;
+    margin: 0 0 0 90px;
+    font-size: 24px;
+  }
+  #name {
+    position: absolute;
+    margin: 0 0 0 170px;
+    font-size: 24px;
+    font-weight: bold;
+  }
 }
 </style>
