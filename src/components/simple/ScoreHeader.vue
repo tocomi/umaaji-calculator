@@ -25,6 +25,7 @@ $height: 40px;
     width: 45px;
     color: #FFF;
     border-right: solid 1px #FFF;
+    font-size: 12px;
   }
   #umaaji {
     position: absolute;
@@ -43,7 +44,7 @@ $height: 40px;
     .score {
       display: inline-block;
       width: 45px;
-      font-size: 12px;
+      font-size: 11px;
     }
     #average {
       border-right: solid 1px #FFF;
