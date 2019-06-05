@@ -1,11 +1,11 @@
 <template lang="pug">
   div#score_header
-    span#odds ODDS
+    span#odds オッズ
     span
-      div#umaaji umaaji
+      div#umaaji ウマ味
       div#score
-        span#average.score AVG
-        span#max.score MAX
+        span#average.score 5走平均
+        span#max.score 最大
 </template>
 
 <style lang="scss" scoped>
@@ -43,6 +43,7 @@ $height: 40px;
     .score {
       display: inline-block;
       width: 45px;
+      font-size: 12px;
     }
     #average {
       border-right: solid 1px #FFF;
