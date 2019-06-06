@@ -1,12 +1,12 @@
 <template lang="pug">
   div#score
-    span#rank_odds.score
+    span#rank_odds.score(:class="[ rankClass(rank) ]")
       p#odds_rank.rank {{ rank }} 
       p#odds {{ odds }}
-    span#average.score
+    span#average.score(:class="[ rankClass(averageRank) ]")
       p#average_rank.rank {{ averageRank }}
       p#average_score {{ average }}
-    span#max.score
+    span#max.score(:class="[ rankClass(maxRank) ]")
       p#max_rank.rank {{ maxRank }}
       p#max_score {{ max }}
 </template>
@@ -20,6 +20,20 @@ export default {
     max: Number,
     averageRank: Number,
     maxRank: Number,
+  },
+  methods: {
+    rankClass(rank) {
+      if (rank === 1) {
+        return 'first'
+      }
+      if (rank === 2) {
+        return 'second'
+      }
+      if (rank === 3) {
+        return 'third'
+      }
+      return ''
+    },
   }
 }
 </script>
@@ -39,6 +53,15 @@ export default {
     display: inline-block;
     width: 60px;
     border-right: 1px solid #AAA;
+    &.first {
+      background-color: #FAFA8A;
+    }
+    &.second {
+      background-color: #EAEAEA;
+    }
+    &.third {
+      background-color: #E3C592;
+    }
   }
   .rank {
     font-size: 18px;
