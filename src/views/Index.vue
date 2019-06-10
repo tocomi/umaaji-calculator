@@ -23,7 +23,7 @@
           div#options
             v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
         div#data-content(v-if="isRaceSelected")
-          v-card
+          v-card#data-card
             div#horses(:class="{ detail: isDetailMode }")
               template(v-if="isDetailMode")
                 transition-group(name="flip-list")
@@ -204,7 +204,11 @@ export default {
     }
     #data-content {
       overflow: scroll;
+      #data-card {
+        min-width: 350px;
+      }
       #horses {
+        min-width: 345px;
         padding: 20px 0 10px 20px;
         &.detail {
           min-width: 1090px;
