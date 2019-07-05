@@ -29,13 +29,13 @@ export default class {
     if (grade === 'OP' || grade === 'L') {
       return score * 1.1
     }
-    if (grade === '1600') {
+    if (grade === '1600' || grade === '3勝') {
       return score
     }
-    if (grade === '1000') {
+    if (grade === '1000' || grade === '2勝') {
       return score * 0.85
     }
-    if (grade === '500') {
+    if (grade === '500' || grade === '1勝') {
       return score * 0.7
     }
     return score * 0.5
