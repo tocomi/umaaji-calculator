@@ -7,6 +7,8 @@
         span {{ race.ground }}{{ race.distance }}
       div#grade
         span {{ race.grade }}
+      div#count
+        span {{ horseCount }}頭
     div#name
       span {{ race.name }}
 </template>
@@ -15,6 +17,11 @@
 export default {
   props: {
     race: Object
+  },
+  computed: {
+    horseCount() {
+      return this.race.horses.length
+    }
   }
 }
 </script>
@@ -22,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 #race_info {
   height: 45px;
-  width: 200px;
+  width: 220px;
   margin-top: 5px;
   outline: 0;
   background-color: #394C82;
@@ -34,20 +41,26 @@ export default {
   #info {
     position: absolute;
     height: 30px;
-    width: 170px;
+    width: 190px;
     margin-top: -5px;
     #place {
       position: absolute;
-      margin-left: 10px;
+      margin-left: 0px;
     }
     #condition {
       position: absolute;
-      margin-left: 70px;
+      margin-left: 60px;
     }
     #grade {
       position: absolute;
       width: 45px;
-      margin-left: 120px;
+      margin-left: 110px;
+      text-align: center;
+    }
+    #count {
+      position: absolute;
+      width: 45px;
+      margin-left: 150px;
       text-align: center;
     }
   }
