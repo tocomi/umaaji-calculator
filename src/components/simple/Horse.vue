@@ -103,7 +103,6 @@ $height: 46px;
     border: 1px solid #AAA;
     #name_age {
       position: absolute;
-      padding: 2px 0 2px 0;
       width: $info_width - 2px;
       height: 24px;
       font-size: 14px;
@@ -128,9 +127,9 @@ $height: 46px;
       position: absolute;
       display: flex;
       justify-content: space-around;
-      height: 20px;
+      height: 21px;
       width: $info_width;
-      margin-top: 25px;
+      margin-top: 24px;
       font-size: 13px;
       border-bottom: 1px solid #AAA;
     }

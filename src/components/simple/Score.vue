@@ -2,13 +2,13 @@
   div#score
     span#rank_odds.score(:class="[ rankClass(rank) ]")
       p#odds_rank.rank {{ rank }} 
-      p#odds {{ odds }}
+      p#odds.detail {{ odds }}
     span#average.score(:class="[ rankClass(averageRank) ]")
       p#average_rank.rank {{ averageRank }}
-      p#average_score {{ average }}
+      p#average_score.detail {{ average }}
     span#max.score(:class="[ rankClass(maxRank) ]")
       p#max_rank.rank {{ maxRank }}
-      p#max_score {{ max }}
+      p#max_score.detail {{ max }}
 </template>
 
 <script>
@@ -66,6 +66,9 @@ export default {
   .rank {
     font-size: 18px;
     font-weight: bold;
+  }
+  .detail {
+    margin: -4px 0 0 0;
   }
 }
 </style>

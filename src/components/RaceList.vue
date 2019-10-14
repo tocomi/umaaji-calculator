@@ -1,6 +1,6 @@
 <template lang="pug">
   div#list(v-if="!loading")
-    v-tabs#place_tabs(color="cyan" slider-color="yellow" dark)
+    v-tabs#place_tabs(color="#463C21" slider-color="yellow" dark)
       v-tab(v-for="place in racePlace", :key="place") {{ place }}
       v-tab-item(v-for="place in racePlace", :key="place")
         div#races

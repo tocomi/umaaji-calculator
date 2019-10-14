@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 #race_info {
-  height: 45px;
+  height: 48px;
   width: 220px;
   margin-top: 5px;
   outline: 0;

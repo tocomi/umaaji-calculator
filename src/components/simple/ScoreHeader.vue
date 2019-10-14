@@ -37,7 +37,7 @@ $height: 40px;
   }
   #score {
     position: absolute;
-    margin: 20px 0 0 45px;
+    margin: 18px 0 0 45px;
     height: ($height / 2) px;
     width: 90px;
     color: #FFF;
