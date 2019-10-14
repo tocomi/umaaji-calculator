@@ -47,7 +47,7 @@ export default {
   border-top: 1px solid #AAA;
   border-bottom: 1px solid #AAA;
   p {
-    margin: 0;
+    margin: -2px 0 0 0;
   }
   .score {
     display: inline-block;
@@ -66,9 +66,6 @@ export default {
   .rank {
     font-size: 18px;
     font-weight: bold;
-  }
-  .detail {
-    margin: -4px 0 0 0;
   }
 }
 </style>
