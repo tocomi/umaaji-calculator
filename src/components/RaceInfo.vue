@@ -32,11 +32,11 @@ export default {
   width: 220px;
   margin-top: 5px;
   outline: 0;
-  background-color: #394C82;
+  background-color: #094C32;
   color: #FFFFFF;
   border-radius: 5px;
   &:hover {
-    background-color: #5B6EA4;
+    background-color: #296C52;
   }
   #info {
     position: absolute;
