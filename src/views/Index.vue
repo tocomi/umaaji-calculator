@@ -108,6 +108,8 @@ export default {
         horse.averageRank = averageRanks[index]
         horse.maxRank = maxRanks[index]
       })
+
+      this.sortByOdds()
     },
     makeRankArray(scores) {
       const ranks = []
