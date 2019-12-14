@@ -1,8 +1,5 @@
 export default class {
   
-  SUB_PLACES = ['札幌', '函館', '福島', '新潟', '中京', '小倉']
-  LOCAL_PLACES = ['門別', '盛岡', '水沢', '浦和', '船橋', '川崎', '大井', '名古屋', '金沢', '笠松', '高知', '園田', '佐賀']
-
   calculateOneRace(race) {
     let score = 0
 
@@ -50,10 +47,12 @@ export default class {
   }
 
   _calculatePlace(score, place) {
-    if (this.SUB_PLACES.includes(place)) {
+    const subPlaces = ['札幌', '函館', '福島', '新潟', '中京', '小倉']
+    const localPlaces = ['門別', '盛岡', '水沢', '浦和', '船橋', '川崎', '大井', '名古屋', '金沢', '笠松', '高知', '園田', '佐賀']
+    if (subPlaces.includes(place)) {
       return score * 0.9
     }
-    if (this.LOCAL_PLACES.includes(place)) {
+    if (localPlaces.includes(place)) {
       return score * 0.3
     }
     return score
