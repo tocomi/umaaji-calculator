@@ -14,7 +14,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setData(state, payload) {
-      state.raceData = payload.raceData
+      state.raceData = payload.raceData ? payload.raceData : []
       state.loading = false
     }
   },
