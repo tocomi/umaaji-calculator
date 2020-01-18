@@ -9,6 +9,7 @@
             div(text-xs-center)
               RaceList(:loading="loading" :racePlace="racePlace" @setHorseData="setHorseData")
     v-progress-circular.circular(indeterminate color="primary" v-if="loading")
+    h2.error-message(v-if="!loading && isLoadingError") レース情報の取得に失敗しました。
     v-layout
       v-flex#list-flex(hidden-xs-only lg2)
         RaceList(:loading="loading" :racePlace="racePlace" @setHorseData="setHorseData")
@@ -68,6 +69,9 @@ export default {
       this.$store.state.raceData.forEach(race => racePlace.add(race.place))
       return [...racePlace]
     },
+    isLoadingError() {
+      return this.$store.state.raceData.length === 0
+    }
   },
   methods: {
     setHorseData(race) {
@@ -167,6 +171,9 @@ export default {
 #index {
   .circular {
     margin: 20px 0 0 0;
+  }
+  .error-message {
+    color: red;
   }
   #list-flex {
     border-right: 1px solid #DDDDDD;
