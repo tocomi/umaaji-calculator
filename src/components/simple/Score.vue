@@ -24,18 +24,18 @@ export default {
   methods: {
     rankClass(rank) {
       if (rank === 1) {
-        return 'first'
+        return 'first';
       }
       if (rank === 2) {
-        return 'second'
+        return 'second';
       }
       if (rank === 3) {
-        return 'third'
+        return 'third';
       }
-      return ''
+      return '';
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

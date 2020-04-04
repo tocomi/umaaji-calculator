@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Calculator from '../lib/UmaajiCalculator.js'
+import Calculator from '../lib/UmaajiCalculator.js';
 
 export default {
   props: {
@@ -23,49 +23,49 @@ export default {
   data() {
     return {
       score: 0,
-    }
+    };
   },
   created() {
     if (this.isRest || this.isExclusion) {
-      return
+      return;
     }
     const calculator = new Calculator();
     this.score = calculator.calculateOneRace(this.race);
-    this.$emit('addScore', this.score)
+    this.$emit('addScore', this.score);
   },
   computed: {
     diff() {
       if (this.isRest || this.isExclusion) {
-        return ''
+        return '';
       }
-      return '(' + this.race.diff + ')'
+      return '(' + this.race.diff + ')';
     },
     isRest() {
       if (!this.race.name) {
         return true;
       }
-      return this.race.name.includes('休養')
+      return this.race.name.includes('休養');
     },
     isExclusion() {
-      return !this.race.time
+      return !this.race.time;
     },
     grade() {
       if (this.race.grade) {
-        return this.race.grade
+        return this.race.grade;
       }
-      return 'rest'
+      return 'rest';
     },
     interval() {
       if (this.race.interval === 0) {
-        return '-'
+        return '-';
       }
       if (this.race.interval === 1) {
-        return '連闘'
+        return '連闘';
       }
-      return '中' + this.race.interval + '週'
-    }
-  }
-}
+      return '中' + this.race.interval + '週';
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

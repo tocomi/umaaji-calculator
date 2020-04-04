@@ -11,8 +11,8 @@ export default {
   props: {
     average: Number,
     max: Number,
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
