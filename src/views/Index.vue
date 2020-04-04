@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import Horse from '../components/simple/Horse.vue'
-import HorseDetail from '../components/detail/HorseDetail.vue'
-import RaceList from '../components/RaceList.vue'
-import RaceInfo from '../components/RaceInfo.vue'
-import RaceHeader from '../components/RaceHeader.vue'
-import ScoreHeader from '../components/simple/ScoreHeader.vue'
-import Loading from '../components/Loading.vue'
+import Horse from '../components/simple/Horse.vue';
+import HorseDetail from '../components/detail/HorseDetail.vue';
+import RaceList from '../components/RaceList.vue';
+import RaceInfo from '../components/RaceInfo.vue';
+import RaceHeader from '../components/RaceHeader.vue';
+import ScoreHeader from '../components/simple/ScoreHeader.vue';
+import Loading from '../components/Loading.vue';
 
 export default {
   name: 'Index',
@@ -52,107 +52,108 @@ export default {
       selectedRace: {},
       isDetailMode: false,
       expanded: [ true ],
-    }
+      dummy: false
+    };
   },
   created() {
-    this.$store.dispatch('readJson')
+    this.$store.dispatch('readJson');
   },
   computed: {
     loading() {
-      return this.$store.state.loading
+      return this.$store.state.loading;
     },
     isRaceSelected() {
-      return Object.keys(this.selectedRace).length
+      return Object.keys(this.selectedRace).length;
     },
     racePlace() {
-      const racePlace = new Set()
-      this.$store.state.raceData.forEach(race => racePlace.add(race.place))
-      return [...racePlace]
+      const racePlace = new Set();
+      this.$store.state.raceData.forEach(race => racePlace.add(race.place));
+      return [...racePlace];
     },
     isLoadingError() {
-      return this.$store.state.raceData.length === 0
+      return this.$store.state.raceData.length === 0;
     }
   },
   methods: {
     setHorseData(race) {
-      const targetRace = this.$store.state.raceData.filter(raceData => race.place === raceData.place && race.round === raceData.round)
-      this.selectedRace = targetRace[0]
-      this.horses = targetRace[0].horses
+      const targetRace = this.$store.state.raceData.filter(raceData => race.place === raceData.place && race.round === raceData.round);
+      this.selectedRace = targetRace[0];
+      this.horses = targetRace[0].horses;
       this.horses.forEach(horse => {
-        horse.average = 0
-        horse.max = 0
-      })
-      this.closeRaceList()
+        horse.average = 0;
+        horse.max = 0;
+      });
+      this.closeRaceList();
     },
     closeRaceList() {
-      this.expanded = []
+      this.expanded = [];
     },
     setScore(horse, average, max) {
-      horse.average = average
-      horse.max = max
-      this.calculateRank()
+      horse.average = average;
+      horse.max = max;
+      this.calculateRank();
     },
     calculateRank() {
-      const last = this.horses.slice(-1)[0]
+      const last = this.horses.slice(-1)[0];
       if (last.max === 0 && last.average === 0) {
-        return
+        return;
       }
 
-      const averageScores = []
-      const maxScores = []
+      const averageScores = [];
+      const maxScores = [];
       this.horses.forEach((horse) => {
-        averageScores.push(horse.average)
-        maxScores.push(horse.max)
-      })
+        averageScores.push(horse.average);
+        maxScores.push(horse.max);
+      });
 
-      const averageRanks = this.makeRankArray(averageScores)
-      const maxRanks = this.makeRankArray(maxScores)
+      const averageRanks = this.makeRankArray(averageScores);
+      const maxRanks = this.makeRankArray(maxScores);
 
       this.horses.forEach((horse, index) => {
-        horse.averageRank = averageRanks[index]
-        horse.maxRank = maxRanks[index]
-      })
+        horse.averageRank = averageRanks[index];
+        horse.maxRank = maxRanks[index];
+      });
 
-      this.sortByOdds()
+      this.sortByOdds();
     },
     makeRankArray(scores) {
-      const ranks = []
-      const checked = []
+      const ranks = [];
+      const checked = [];
       scores.forEach((score) => {
         if (ranks.length === 0) {
-          ranks.push(1)
-          checked.push(score)
-          return
+          ranks.push(1);
+          checked.push(score);
+          return;
         }
-        let rank = 1
+        let rank = 1;
         checked.forEach((checkedScore, index) => {
           if (score < checkedScore) {
-            rank++
+            rank++;
           } else if (score > checkedScore) {
-            ranks[index]++
+            ranks[index]++;
           }
-        })
-        ranks.push(rank)
-        checked.push(score)
-      })
-      return ranks
+        });
+        ranks.push(rank);
+        checked.push(score);
+      });
+      return ranks;
     },
     sortByAverage() {
-      this.horses.sort((a, b) => b.average - a.average)
+      this.horses.sort((a, b) => b.average - a.average);
     },
     sortByMax() {
-      this.horses.sort((a, b) => b.max - a.max)
+      this.horses.sort((a, b) => b.max - a.max);
     },
     sortByOdds() {
-      this.horses.sort((a, b) => a.odds - b.odds)
+      this.horses.sort((a, b) => a.odds - b.odds);
     },
     sortByNumber() {
-      this.horses.sort((a, b) => a.number - b.number)
+      this.horses.sort((a, b) => a.number - b.number);
     },
     raceData(place) {
       return this.$store.state.raceData
         .filter(race => race.place === place)
-        .sort((a, b) => a.round - b.round)
+        .sort((a, b) => a.round - b.round);
     },
   },
   components: {
@@ -164,7 +165,7 @@ export default {
     ScoreHeader,
     Loading,
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
