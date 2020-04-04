@@ -16,14 +16,14 @@
 <script>
 export default {
   props: {
-    race: Object
+    race: Object,
   },
   computed: {
     horseCount() {
-      return this.race.horses.length
-    }
-  }
-}
+      return this.race.horses.length;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

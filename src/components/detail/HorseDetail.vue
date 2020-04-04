@@ -17,80 +17,80 @@
 </template>
 
 <script>
-import Gate from './GateDetail.vue'
-import PastRace from '../PastRace.vue'
-import Score from './ScoreDetail.vue'
+import Gate from './GateDetail.vue';
+import PastRace from '../PastRace.vue';
+import Score from './ScoreDetail.vue';
 
 export default {
   props: {
     horse: Object,
   },
   created() {
-    this.calculateInterval()
+    this.calculateInterval();
   },
   data() {
     return {
       score: 0,
       count: 0,
       max: 0,
-    }
+    };
   },
   computed: {
     average() {
-      return Math.round(this.score / this.count * 10) / 10
+      return Math.round(this.score / this.count * 10) / 10;
     },
     rank() {
       if (this.horse.rank) {
-        return '(' + this.horse.rank + ')'
+        return '(' + this.horse.rank + ')';
       }
-      return ''
+      return '';
     },
     sexClass() {
       if (this.horse.sex === '牡') {
-        return 'male'
+        return 'male';
       }
       if (this.horse.sex === '牝') {
-        return 'female'
+        return 'female';
       }
-      return ''
-    }
+      return '';
+    },
   },
   methods: {
     addScore(raceScore) {
-      this.score += raceScore
-      this.count++
+      this.score += raceScore;
+      this.count++;
       if (raceScore > this.max) {
-        this.max = raceScore
+        this.max = raceScore;
       }
-      this.$emit('setScore', this.horse, this.average, this.max)
+      this.$emit('setScore', this.horse, this.average, this.max);
     },
     calculateInterval() {
-      let previousDate = 0
+      let previousDate = 0;
       this.horse.past_races.slice().reverse().forEach(race => {
-        const date = this.culculateDay(race.date)
+        const date = this.culculateDay(race.date);
         if (date === 0 || previousDate === 0) {
-          race.interval = 0
-          previousDate = date
-          return
+          race.interval = 0;
+          previousDate = date;
+          return;
         }
-        race.interval = Math.round((date - previousDate) / 7)
-        previousDate = date
+        race.interval = Math.round((date - previousDate) / 7);
+        previousDate = date;
       });
     },
     culculateDay(date) {
-      let dateArray = date.split('.')
+      let dateArray = date.split('.');
       if (dateArray.length < 3) {
-        return 0
+        return 0;
       }
-      return (Number(dateArray[0]) * 365) + (Number(dateArray[1]) * 30) + (Number(dateArray[2]))
-    }
+      return (Number(dateArray[0]) * 365) + (Number(dateArray[1]) * 30) + (Number(dateArray[2]));
+    },
   },
   components: {
     Gate,
     PastRace,
     Score,
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

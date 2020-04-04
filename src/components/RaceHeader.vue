@@ -14,12 +14,12 @@ export default {
   computed: {
     grade() {
       if (/[0-9]{3,4}/.test(this.race.grade)) {
-        return this.race.grade + '万下'
+        return this.race.grade + '万下';
       }
-      return this.race.grade
-    }
-  }
-}
+      return this.race.grade;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

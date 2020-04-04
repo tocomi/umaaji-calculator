@@ -12,10 +12,10 @@ export default {
   },
   computed: {
     gateClass() {
-      return 'gate' + this.gate
-    }
-  }
-}
+      return 'gate' + this.gate;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

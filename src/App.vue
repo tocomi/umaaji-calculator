@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Index from './views/Index.vue'
+import Header from './components/Header.vue';
+import Index from './views/Index.vue';
 
 export default {
   name: 'app',
   components: {
     Header,
     Index,
-  }
-}
+  },
+};
 </script>
 
 <style>

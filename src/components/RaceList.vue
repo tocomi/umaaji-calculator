@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import RaceInfo from '../components/RaceInfo.vue'
+import RaceInfo from '../components/RaceInfo.vue';
 
 export default {
   props: {
@@ -20,16 +20,16 @@ export default {
     raceData(place) {
       return this.$store.state.raceData
         .filter(race => race.place === place)
-        .sort((a, b) => a.round - b.round)
+        .sort((a, b) => a.round - b.round);
     },
     setHorseData(race) {
-      this.$emit('setHorseData', race)
+      this.$emit('setHorseData', race);
     },
   },
   components: {
     RaceInfo,
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
