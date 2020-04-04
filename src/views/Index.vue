@@ -46,13 +46,22 @@ import Loading from '../components/Loading.vue';
 
 export default {
   name: 'Index',
+  components: {
+    Horse,
+    HorseDetail,
+    RaceList,
+    RaceInfo,
+    RaceHeader,
+    ScoreHeader,
+    Loading,
+  },
   data() {
     return {
       horses: [],
       selectedRace: {},
       isDetailMode: false,
       expanded: [ true ],
-      dummy: false
+      dummy: false,
     };
   },
   created() {
@@ -72,7 +81,7 @@ export default {
     },
     isLoadingError() {
       return this.$store.state.raceData.length === 0;
-    }
+    },
   },
   methods: {
     setHorseData(race) {
@@ -156,15 +165,6 @@ export default {
         .sort((a, b) => a.round - b.round);
     },
   },
-  components: {
-    Horse,
-    HorseDetail,
-    RaceList,
-    RaceInfo,
-    RaceHeader,
-    ScoreHeader,
-    Loading,
-  }
 };
 </script>
 
