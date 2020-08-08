@@ -19,13 +19,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 46px;
+$height: 64px;
+
 #entry {
-  float: left;
+  display: flex;
   height: $height;
   line-height: $height;
+
   #gate, #number {
-    float: left;
     height: $height - 0.5px;
     width: 20px;
     border: solid 1px #AAA;

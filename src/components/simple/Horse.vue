@@ -2,14 +2,14 @@
   div.horse
     Gate(:gate="horse.gate" :number="horse.number")
     div#info
-      div#name_age(:class="[ sexClass ]")
-        span#name {{ horse.name }}
-      div#race
-        span#age {{ horse.sex }}{{ horse.age }}
-        div#jocket_handi
+      div#horse_info
+        div#name_age(:class="[ sexClass ]")
+          span#name {{ horse.name }}
+        div#race
+          span#age {{ horse.sex }}{{ horse.age }}
           span#jockey {{ horse.jockey }} 
           span#handi {{ horse.handi }} 
-    Score(:odds="Number(horse.odds)" :rank="Number(horse.rank)" :max="max" :average="average" :maxRank="horse.maxRank" :averageRank="horse.averageRank")
+      Score(:odds="Number(horse.odds)" :rank="Number(horse.rank)" :max="max" :average="average" :maxRank="horse.maxRank" :averageRank="horse.averageRank")
     div(v-show="false")
       PastRace(v-for="(race, index) in horse.past_races" :key="index" :race="race" @addScore="addScore")
 </template>
@@ -92,46 +92,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 46px;
 .horse {
-  height: $height + 1px;
-  $info_width: 150px;
+  display: flex;
+  height: 64px;
+
   #info {
-    float: left;
-    width: $info_width;
-    height: $height;
-    border: 1px solid #AAA;
-    #name_age {
-      position: absolute;
-      width: $info_width - 2px;
-      height: 24px;
-      font-size: 14px;
-      font-weight: bold;
-      border-bottom: solid 1px #CCC;
-      &.male {
-        color: #2C42B8;
-      }
-      &.female {
-        color: #DC3C3C;
-      }
-      #name {
-        display: inline-block;
-        width: 139px;
-      }
-      #age {
-        display: inline-block;
-        width: 39px;
-      }
-    }
-    #race {
-      position: absolute;
+    border: 1px solid #DDD;
+    left: 24px;
+    width: 264px;
+
+    #horse_info {
+      align-items: center;
+      border: solid 1px #F4F4F4;
       display: flex;
-      justify-content: space-around;
-      height: 21px;
-      width: $info_width;
-      margin-top: 24px;
-      font-size: 13px;
-      border-bottom: 1px solid #AAA;
+      height: 28px;
+
+      #name_age {
+        font-size: 14px;
+        font-weight: bold;
+
+        &.male {
+          color: #2C42B8;
+        }
+        &.female {
+          color: #DC3C3C;
+        }
+        #name {
+          display: inline-block;
+          width: 136px;
+        }
+      }
+      #race {
+        align-items: center;
+        display: flex;
+        justify-content: start;
+        font-size: 13px;
+
+        #age {
+          width: 32px;
+        }
+        #jockey {
+          width: 52px;
+        }
+        #handi {
+          width: 32px;
+        }
+      }
     }
   }
 }

@@ -19,7 +19,8 @@
           div#buttons
             v-btn.sort-button(@click="sortByAverage") average
             v-btn.sort-button(@click="sortByMax") max
-            v-btn.sort-button(@click="sortByOdds") odds
+            //- FIXME: netkeibaの仕様変更によりオッズのデータが取れていない
+            //- v-btn.sort-button(@click="sortByOdds") odds
             v-btn.sort-button(@click="sortByNumber") number
           div#options
             v-checkbox(v-model="isDetailMode" :label="`Detail mode`")
@@ -30,7 +31,6 @@
                 transition-group(name="flip-list")
                   HorseDetail(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
               template(v-else)
-                ScoreHeader
                 transition-group(name="flip-list")
                   Horse(v-for="horse in horses", :key="horse.name", :horse="horse", @setScore="setScore")
 </template>
