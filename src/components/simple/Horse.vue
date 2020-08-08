@@ -108,8 +108,11 @@ export default {
       height: 28px;
 
       #name_age {
-        font-size: 14px;
+        align-items: center;
+        display: flex;
+        font-size: 13px;
         font-weight: bold;
+        height: inherit;
 
         &.male {
           color: #2C42B8;
@@ -125,8 +128,9 @@ export default {
       #race {
         align-items: center;
         display: flex;
+        height: inherit;
         justify-content: start;
-        font-size: 13px;
+        font-size: 12px;
 
         #age {
           width: 32px;

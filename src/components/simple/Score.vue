@@ -69,7 +69,7 @@ export default {
   }
   .label {
     color: #777;
-    font-size: 8px;
+    font-size: 10px;
     width: 40px;
   }
   .rank {
@@ -89,7 +89,7 @@ export default {
   }
   .unit {
     color: #AAA;
-    font-size: 8px;
+    font-size: 10px;
   }
   .detail {
     font-size: 12px;
