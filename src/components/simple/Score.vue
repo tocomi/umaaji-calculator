@@ -1,14 +1,19 @@
 <template lang="pug">
   div#score
-    span#rank_odds.score(:class="[ rankClass(rank) ]")
-      p#odds_rank.rank {{ rank }} 
-      p#odds.detail {{ odds }}
-    span#average.score(:class="[ rankClass(averageRank) ]")
-      p#average_rank.rank {{ averageRank }}
-      p#average_score.detail {{ average }}
-    span#max.score(:class="[ rankClass(maxRank) ]")
-      p#max_rank.rank {{ maxRank }}
-      p#max_score.detail {{ max }}
+    //- FIXME: netkeibaの仕様変更によりオッズのデータが取れていない
+    //- span#rank_odds.score(:class="[ rankClass(rank) ]")
+    //-   p#odds_rank.rank {{ rank }} 
+    //-   p#odds.detail {{ odds }}
+    div#average.score
+      span.label 5走平均
+      span.rank(:class="[ rankClass(averageRank) ]") {{ averageRank }}
+      span.unit 位
+      span.detail ({{ fixedAverage }})
+    div#max.score
+      span.label 最大値
+      span.rank(:class="[ rankClass(maxRank) ]") {{ maxRank }}
+      span.unit 位
+      span.detail ({{ fixedMax }})
 </template>
 
 <script>
@@ -20,6 +25,14 @@ export default {
     max: Number,
     averageRank: Number,
     maxRank: Number,
+  },
+  computed: {
+    fixedAverage() {
+      return Number.parseFloat(this.average).toFixed(1);
+    },
+    fixedMax() {
+      return Number.parseFloat(this.max).toFixed(1);
+    },
   },
   methods: {
     rankClass(rank) {
@@ -40,32 +53,47 @@ export default {
 
 <style lang="scss" scoped>
 #score {
+  align-items: center;
   display: flex;
-  justify-content: space-between;
-  width: 135px;
-  height: 46px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
+  justify-content: space-evenly;
+  width: 264px;
+  height: 32px;
+
   p {
     margin: -2px 0 0 0;
   }
   .score {
-    display: inline-block;
-    width: 60px;
-    border-right: 1px solid #AAA;
-    &.first {
-      background-color: #FAFA8A;
-    }
-    &.second {
-      background-color: #EAEAEA;
-    }
-    &.third {
-      background-color: #E3C592;
-    }
+    display: flex;
+    align-items: baseline;
+    width: 120px;
+  }
+  .label {
+    color: #777;
+    font-size: 8px;
+    width: 40px;
   }
   .rank {
     font-size: 18px;
     font-weight: bold;
+    width: 24px;
+
+    &.first {
+      color: #CACA4A;
+    }
+    &.second {
+      color: #BABABA;
+    }
+    &.third {
+      color: #C3A572;
+    }
+  }
+  .unit {
+    color: #AAA;
+    font-size: 8px;
+  }
+  .detail {
+    font-size: 12px;
+    width: 40px;
   }
 }
 </style>
