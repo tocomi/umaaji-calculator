@@ -123,7 +123,7 @@ export default {
         horse.maxRank = maxRanks[index];
       });
 
-      this.sortByOdds();
+      this.sortByAverage();
     },
     makeRankArray(scores) {
       const ranks = [];
