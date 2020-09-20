@@ -24,6 +24,16 @@ export default {
     },
     setHorseData(race) {
       this.$emit('setHorseData', race);
+      // NOTE: for google analytics
+      // eslint-disable-next-line no-undef
+      dataLayer.push({
+        'event': 'gaEvent',
+        'eventCategory': 'event',
+        'eventAction': 'click',
+        'eventLabel': 'selectRace',
+        'eventValue': `${race.place}${race.round}R`,
+        'nonInteraction': true,
+      });
     },
   },
   components: {
