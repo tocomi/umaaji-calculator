@@ -28,10 +28,9 @@ export default {
       // eslint-disable-next-line no-undef
       dataLayer.push({
         'event': 'gaEvent',
-        'eventCategory': 'event',
+        'eventCategory': 'selectRace',
         'eventAction': 'click',
-        'eventLabel': 'selectRace',
-        'eventValue': `${race.place}${race.round}R`,
+        'eventLabel': `${race.place}${race.round}R`,
         'nonInteraction': true,
       });
     },
