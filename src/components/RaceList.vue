@@ -26,12 +26,9 @@ export default {
       this.$emit('setHorseData', race);
       // NOTE: for google analytics
       // eslint-disable-next-line no-undef
-      dataLayer.push({
-        'event': 'gaEvent',
-        'eventCategory': 'selectRace',
-        'eventAction': 'click',
-        'eventLabel': `${race.place}${race.round}R`,
-        'nonInteraction': true,
+      gtag('event', 'click', {
+        event_category: 'selectRace',
+        event_label: `${race.place}${race.round}R`,
       });
     },
   },
