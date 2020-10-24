@@ -20,13 +20,13 @@ export default {
       event.userChoice.then((choice) => {
         if (choice.outcome === 'accepted') {
           // eslint-disable-next-line no-undef
-          gtag('event', 'click', {
+          gtag('event', 'install', {
             event_category: 'H2AS',
             event_label: 'accept',
           });
         } else {
           // eslint-disable-next-line no-undef
-          gtag('event', 'click', {
+          gtag('event', 'install', {
             event_category: 'H2AS',
             event_label: 'cancel',
           });
