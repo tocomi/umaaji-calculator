@@ -21,13 +21,13 @@ export default {
         if (choice.outcome === 'accepted') {
           // eslint-disable-next-line no-undef
           gtag('event', 'install', {
-            event_category: 'H2AS',
+            event_category: 'A2HS',
             event_label: 'accept',
           });
         } else {
           // eslint-disable-next-line no-undef
           gtag('event', 'install', {
-            event_category: 'H2AS',
+            event_category: 'A2HS',
             event_label: 'cancel',
           });
         }
