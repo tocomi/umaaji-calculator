@@ -15,25 +15,6 @@ export default {
     Header,
     Index,
   },
-  created() {
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.userChoice.then((choice) => {
-        if (choice.outcome === 'accepted') {
-          // eslint-disable-next-line no-undef
-          gtag('event', 'install', {
-            event_category: 'A2HS',
-            event_label: 'accept',
-          });
-        } else {
-          // eslint-disable-next-line no-undef
-          gtag('event', 'install', {
-            event_category: 'A2HS',
-            event_label: 'cancel',
-          });
-        }
-      });
-    });
-  },
 };
 </script>
 
